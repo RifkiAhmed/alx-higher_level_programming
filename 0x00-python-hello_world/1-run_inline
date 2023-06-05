@@ -1,2 +1,2 @@
 #!/bin/bash
-$PYCODE
+echp $PYCODE | /usr/bin/python3
