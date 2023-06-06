@@ -18,9 +18,17 @@ int check_cycle(listint_t *list)
 	if (list->next != NULL)
 		node = list->next;
 	else
+	{
+		free(node);
+		node = NULL;
 		return (0);
+	}
 	if (node->next == NULL)
+	{
+		free(node);
+		node = NULL;
 		return (0);
+	}
 	while (node->next != NULL)
 	{
 		if (node->next == list)
