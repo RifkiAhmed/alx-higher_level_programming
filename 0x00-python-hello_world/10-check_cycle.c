@@ -19,6 +19,8 @@ int check_cycle(listint_t *list)
 		node = list->next;
 	else
 		return (0);
+	if (node->next == NULL)
+		return (0);
 	while (node->next != NULL)
 	{
 		if (node->next == list)
