@@ -18,7 +18,7 @@ int check_cycle(listint_t *list)
 
 	node = malloc(sizeof(listint_t));
 	if (node == NULL)
-		return (1);
+		return (0);
 
 	node = list->next;
 	if (node->next == NULL)
