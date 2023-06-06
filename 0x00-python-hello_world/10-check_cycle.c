@@ -11,18 +11,16 @@ int check_cycle(listint_t *list)
 {
 	listint_t *node = NULL;
 
+	if (list == NULL)
+		return (0);
+	if (list->next == NULL)
+		return (0);
+
 	node = malloc(sizeof(listint_t));
 	if (node == NULL)
 		return (1);
 
-	if (list->next != NULL)
-		node = list->next;
-	else
-	{
-		free(node);
-		node = NULL;
-		return (0);
-	}
+	node = list->next;
 	if (node->next == NULL)
 	{
 		free(node);
