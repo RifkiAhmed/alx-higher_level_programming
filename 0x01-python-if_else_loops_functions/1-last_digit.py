@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 import random
 number = random.randint(-10000, 10000)
-modulo = number % 10
+if number < 0:
+    modulo = (-number)%10 * -1
+else:
+    modulo = number % 10
 if modulo == 0:
     print(f"Last digit of {number} is {modulo} and is 0")
 elif modulo < 0:
