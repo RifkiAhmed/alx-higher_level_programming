@@ -24,7 +24,6 @@ int check_cycle(listint_t *list)
 	if (node->next == NULL)
 	{
 		free(node);
-		node = NULL;
 		return (0);
 	}
 	while (node->next != NULL)
@@ -32,12 +31,10 @@ int check_cycle(listint_t *list)
 		if (node->next == list)
 		{
 			free(node);
-			node = NULL;
 			return (1);
 		}
 		node = node->next;
 	}
 	free(node);
-	node = NULL;
 	return (0);
 }
