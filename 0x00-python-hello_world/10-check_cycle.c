@@ -9,32 +9,14 @@
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *node = NULL;
+	listint_t *current;
 
-	if (list == NULL)
-		return (0);
-	if (list->next == NULL)
-		return (0);
-
-	node = malloc(sizeof(listint_t));
-	if (node == NULL)
-		return (0);
-
-	node = list->next;
-	if (node->next == NULL)
+	current = list;
+	while (current->next)
 	{
-		free(node);
-		return (0);
-	}
-	while (node->next != NULL)
-	{
-		if (node->next == list)
-		{
-			free(node);
+		if (current->next == list)
 			return (1);
-		}
-		node = node->next;
+		current = current->next;
 	}
-	free(node);
 	return (0);
 }
