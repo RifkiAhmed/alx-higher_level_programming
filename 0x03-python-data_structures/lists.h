@@ -2,6 +2,7 @@
 #define LISTS_H
 
 #include <stdlib.h>
+#define BUF 1024
 /**
  * struct listint_s - singly linked list
  * @n: integer
