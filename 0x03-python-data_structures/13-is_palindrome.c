@@ -12,10 +12,9 @@ int is_palindrome(listint_t **head)
 	int data[BUF];
 	listint_t *ptr;
 
-	if (*head == NULL)
+	if (head == NULL || *head == NULL || (*head)->next == NULL)
 		return (1);
-	if ((*head)->next == NULL)
-		return (1);
+
 	ptr = *head;
 	while (ptr->next != NULL)
 	{
