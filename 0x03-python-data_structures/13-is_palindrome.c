@@ -9,7 +9,7 @@
 int is_palindrome(listint_t **head)
 {
 	int len = 0, i;
-	int *data[BUF];
+	int data[BUF];
 
 	if (*head == NULL)
 		return (1);
