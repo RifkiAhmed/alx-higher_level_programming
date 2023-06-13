@@ -12,7 +12,7 @@ int is_palindrome(listint_t **head)
 	int *data;
 	listint_t *ptr;
 
-	if (head == NULL || *head == NULL || (*head)->next == NULL)
+	if (*head == NULL || (*head)->next == NULL)
 		return (1);
 
 	ptr = *head;
@@ -28,7 +28,7 @@ int is_palindrome(listint_t **head)
 	data[len] = ptr->n;
 	len++;
 
-	for (i = 0; i <= (len / 2); i++)
+	for (i = 0; i < (len / 2); i++)
 	{
 		if (data[i] != data[len - 1 - i])
 		{
