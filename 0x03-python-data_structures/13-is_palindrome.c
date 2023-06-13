@@ -1,5 +1,5 @@
 #include "lists.h"
-
+#include <limits.h>
 /**
  * is_palindrome - Checks if a singly linked list is a palindrome
  * @head: pointer to the head of the singly linked list
@@ -9,7 +9,7 @@
 int is_palindrome(listint_t **head)
 {
 	int len = 0, i;
-	int data[BUF];
+	int data[INT_MAX];
 	listint_t *ptr;
 
 	if (head == NULL || *head == NULL || (*head)->next == NULL)
