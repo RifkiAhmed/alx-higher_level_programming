@@ -10,18 +10,20 @@ int is_palindrome(listint_t **head)
 {
 	int len = 0, i;
 	int data[BUF];
+	listint_t *ptr;
 
 	if (*head == NULL)
 		return (1);
 	if ((*head)->next == NULL)
 		return (1);
-	while ((*head)->next != NULL)
+	ptr = *head;
+	while (ptr->next != NULL)
 	{
-		data[len] = (*head)->n;
+		data[len] = ptr->n;
 		len++;
-		*head = (*head)->next;
+		ptr = ptr->next;
 	}
-	data[len] = (*head)->n;
+	data[len] = ptr->n;
 
 	if (len % 2 == 0)
 		return (0);
