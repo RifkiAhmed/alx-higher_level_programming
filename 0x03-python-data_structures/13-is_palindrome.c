@@ -24,13 +24,14 @@ int is_palindrome(listint_t **head)
 		ptr = ptr->next;
 	}
 	data[len] = ptr->n;
+	len++;
 
-	if (len % 2 == 0)
+	if (len % 2 != 0)
 		return (0);
 
-	for (i = 0; i <= (len / 2); i++)
+	for (i = 0; i < (len / 2); i++)
 	{
-		if (data[i] != data[len - i])
+		if (data[i] != data[len - 1 - i])
 			return (0);
 	}
 	return (1);
