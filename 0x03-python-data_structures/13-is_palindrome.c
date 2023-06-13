@@ -28,7 +28,7 @@ int is_palindrome(listint_t **head)
 	data[len] = ptr->n;
 	len++;
 
-	for (i = 0; i < (len / 2); i++)
+	for (i = 0; i <= (len / 2); i++)
 	{
 		if (data[i] != data[len - 1 - i])
 		{
