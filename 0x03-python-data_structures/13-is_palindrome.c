@@ -9,15 +9,18 @@
 int is_palindrome(listint_t **head)
 {
 	int len = 0, i;
-	int data[INT_MAX];
+	int *data;
 	listint_t *ptr;
 
 	if (head == NULL || *head == NULL || (*head)->next == NULL)
 		return (1);
 
 	ptr = *head;
+	data = malloc(sizeof(int) * 1024);
 	while (ptr->next != NULL)
 	{
+		if (len == 1023)
+			data = malloc(sizeof(int) * 1024 * 2);
 		data[len] = ptr->n;
 		len++;
 		ptr = ptr->next;
@@ -26,12 +29,18 @@ int is_palindrome(listint_t **head)
 	len++;
 
 	if (len % 2 != 0)
+	{
+		free(data);
 		return (0);
-
+	}
 	for (i = 0; i < (len / 2); i++)
 	{
 		if (data[i] != data[len - 1 - i])
+		{
+			free(data);
 			return (0);
+		}
 	}
+	free(data);
 	return (1);
 }
