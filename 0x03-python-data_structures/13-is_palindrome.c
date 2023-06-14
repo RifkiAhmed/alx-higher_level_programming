@@ -16,11 +16,9 @@ int is_palindrome(listint_t **head)
 		return (1);
 
 	ptr = *head;
-	data = malloc(sizeof(int) * 1024);
 	while (ptr->next != NULL)
 	{
-		if (len == 1023)
-			data = malloc(sizeof(int) * 1024 * 2);
+		data = malloc(sizeof(int) * len + 1);
 		data[len] = ptr->n;
 		len++;
 		ptr = ptr->next;
