@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def square_matrix_simple(matrix=[]):
-    if matrix == [[]]:
+    if matrix == []:
         return None
     matrix2 = []
     for i in range(len(matrix)):
