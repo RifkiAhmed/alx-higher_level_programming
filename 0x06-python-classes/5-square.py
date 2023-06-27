@@ -10,11 +10,11 @@ class Square:
 
     def __init__(self, size=0):
         '''Initialise instance/object'''
-        self.__size = size
+        self.size = size
 
     def area(self):
         ''' Return the current square area'''
-        return self.__size ** 2
+        return self.size ** 2
 
     @property
     def size(self):
@@ -36,10 +36,10 @@ class Square:
             if size is diffrent from 0 prints with the character #
             otherwise prints an empty line
         '''
-        if self.__size == 0:
+        if self.size == 0:
             print('')
         else:
-            for i in range(self.__size):
-                for j in range(self.__size):
+            for i in range(self.size):
+                for j in range(self.size):
                     print('#', end="")
                 print('')
