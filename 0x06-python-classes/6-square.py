@@ -54,7 +54,7 @@ class Square:
             if size is diffrent from 0 prints with the character #
             otherwise prints an empty line
         '''
-        if self.size == 0:
+        if self.__size == 0:
             print()
         else:
             print('\n' * self.__position[1], end="")
