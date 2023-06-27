@@ -2,4 +2,8 @@
 
 
 class Square:
-    pass 'An empty block'
+    '''
+    empty block
+    '''
+
+    pass
