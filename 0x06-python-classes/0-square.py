@@ -4,6 +4,7 @@
 class Square: new type
 '''
 
+
 class Square:
     '''
     empty block
