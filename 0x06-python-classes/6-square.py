@@ -57,7 +57,7 @@ class Square:
         if self.size == 0:
             print()
         else:
-            print('\n' * self.position[1], end="")
+            print('\n' * self.__position[1], end="")
             print('\n'.join(
-                [' ' * self.position[0] + '#' * self.size] * self.size
+                [' ' * self.__position[0] + '#' * self.__size] * self.__size
             ))
