@@ -2,6 +2,4 @@
 
 
 class Square:
-    '''Empty class.'''
-    
     pass # An empty block
