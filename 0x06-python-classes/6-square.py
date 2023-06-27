@@ -6,12 +6,25 @@ class Square: new type
 
 
 class Square:
-    ''' Represents a square with a zise and position.'''
+    ''' Represents a square with a zise.'''
 
     def __init__(self, size=0, position=(0, 0)):
         '''Initialise instance/object'''
         self.__size = size
         self.__position = position
+
+    def area(self):
+        ''' Return the current square area'''
+        return self.__size ** 2
+
+    def my_print(self):
+        ''' Prints square in stdout'''
+        if self.__size == 0:
+            print()
+        else:
+            print('\n' * self.__position[1], end="")
+            for i in range(self.__size):
+                print(' ' * self.__position[0] + '#' * self.__size)
 
     @property
     def size(self):
@@ -35,29 +48,10 @@ class Square:
 
     @position.setter
     def position(self, value):
-        ''' Sets current square position'''
-        if not (isinstance(value, tuple)
-                and len(value) == 2
-                and isinstance(value[0], int)
-                and isinstance(value[1], int)
-                and value[0] >= 0
-                and value[1] >= 0):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position == value
-
-    def area(self):
-        ''' Return the current square area'''
-        return self.size ** 2
-
-    def my_print(self):
-        ''' Prints in stdout the square
-            if size is diffrent from 0 prints with the character #
-            otherwise prints an empty line
-        '''
-        if self.__size == 0:
-            print()
-        else:
-            print('\n' * self.__position[1], end="")
-            print('\n'.join(
-                [' ' * self.__position[0] + '#' * self.__size] * self.__size
-            ))
+        if not (isinstance(value, tuple) and
+                len(value) == 2 and
+                isinstance(value[0], int) and
+                isinstance(value[1], int) and
+                value[0] >= 0 and value[1] >= 0):
+            raise TypeError('position must be a tuple of 2 positive integers')
+        self.__position = value
