@@ -40,34 +40,24 @@ class Square:
                 and isinstance(value[0], int)
                 and isinstance(value[1], int)
                 and len(value) == 2
-                and value[0] >= 0 and value[1] >= 0):
+                and value[0] >= 0
+                and value[1] >= 0):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position == value
 
     def area(self):
         ''' Return the current square area'''
-        return self.__size ** 2
+        return self.size ** 2
 
     def my_print(self):
         ''' Prints in stdout the square
             if size is diffrent from 0 prints with the character #
             otherwise prints an empty line
         '''
-        if self.__size == 0:
-            print('')
+        if self.size == 0:
+            print()
         else:
-            i = 0
-            while (self.__position[1] > i):
-                print('')
-                i += 1
-
-            space = ''
-            i = 0
-            while (self.__position[0] > i):
-                space += ' '
-                i += 1
-            for i in range(self.__size):
-                print("{:s}".format(space), end="")
-                for j in range(self.__size):
-                    print('#', end="")
-                print('')
+            print('\n' * self.position[1], end="")
+            print('\n'.join(
+                [' ' * self.position[0] + '#' * self.size] * self.size
+            ))
