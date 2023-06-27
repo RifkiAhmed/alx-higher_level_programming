@@ -56,12 +56,16 @@ class Square:
         if self.__size == 0:
             print('')
         else:
+            i = 0
+            while (self.__position[1] > i):
+                print('')
+                i += 1
+
             space = ''
-            if self.__position[1] == 0:
-                i = 0
-                while (self.__position[0] >= i):
-                    space += ' '
-                    i += 1
+            i = 0
+            while (self.__position[0] > i):
+                space += ' '
+                i += 1
             for i in range(self.__size):
                 print("{:s}".format(space), end="")
                 for j in range(self.__size):
