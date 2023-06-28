@@ -4,7 +4,7 @@
 '''
 
 
-class Square():
+class Square:
     ''' Represents a square with a zise.
     '''
 
