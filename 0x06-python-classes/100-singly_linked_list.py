@@ -68,5 +68,8 @@ class SinglyLinkedList:
         str = ''
         self.__head = sorted(self.__head)
         for i in self.__head:
-            str += '{}\n'.format(i)
+            if i == self.__head[-1]:
+                str += '{}'.format(i)
+            else:
+                str += '{}\n'.format(i)
         return str
