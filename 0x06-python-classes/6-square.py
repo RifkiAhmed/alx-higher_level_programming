@@ -22,12 +22,12 @@ class Square():
     def my_print(self):
         ''' Prints square in stdout
         '''
-        if self.__size == 0:
-            print()
-        else:
+        if self.__size:
             print('\n' * self.__position[1], end="")
             for i in range(self.__size):
                 print(' ' * self.__position[0] + '#' * self.__size)
+        else:
+            print()
 
     @property
     def size(self):
