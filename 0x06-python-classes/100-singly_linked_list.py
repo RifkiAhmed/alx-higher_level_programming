@@ -65,11 +65,11 @@ class SinglyLinkedList:
     def __str__(self):
         ''' Prints list
         '''
-        str = ''
-        self.__head = sorted(self.__head)
         if self.__head == []:
             return ''
+        str = ''
+        self.__head = sorted(self.__head)
         for i in range(len(self.__head) - 1):
-            str += '{}\n'.format(self.__head[i])
-        str += '{}'.format(self.__head[i + 1])
+            str += '{0}\n'.format(self.__head[i])
+        str += '{0}'.format(self.__head[i + 1])
         return str
