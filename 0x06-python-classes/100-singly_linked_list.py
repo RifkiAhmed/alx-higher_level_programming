@@ -72,5 +72,5 @@ class SinglyLinkedList:
             self.__head = sorted(self.__head)
             for i in range(len(self.__head) - 1):
                 str += '{0}\n'.format(self.__head[i])
-            str += '{0}'.format(self.__head[i + 1])
+            str += '{0}'.format(self.__head[-1])
             return str
