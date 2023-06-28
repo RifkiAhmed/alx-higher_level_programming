@@ -38,8 +38,7 @@ class Square:
                 str += ' ' * self.position[0] + '#' * self.size + '\n'
             str += ' ' * self.position[0] + '#' * self.size
             return str
-        else:
-            return str()
+        return str()
 
     @property
     def size(self):
