@@ -3,7 +3,7 @@
 '''
 
 
-class Node:
+class Node():
     ''' Defines a node of a singly linked list
     '''
 
@@ -37,9 +37,10 @@ class Node:
     def next_node(self, value):
         ''' Sets next node data
         '''
-        if value is not None or not isinstance(value, Node):
+        if value is type(self) or value is None:
+            self.__next_node = value
+        else:
             raise TypeError('next_node must be a Node object')
-        self.__next_node = value
 
 
 ''' class SinglyLinkedList: definition of new type
@@ -53,9 +54,19 @@ class SinglyLinkedList:
     def __init__(self):
         ''' Initiates current singly linked list
         '''
-        self.__head = None
+        self.__head = []
 
     def sorted_insert(self, value):
         ''' Add new node
         '''
-        self.__head = Node(value, None)
+        node = Node(value, None)
+        self.__head.append(node.data)
+
+    def __str__(self):
+        ''' Prints list
+        '''
+        str = ''
+        self.__head = sorted(self.__head)
+        for i in self.__head:
+            str += '{}\n'.format(i)
+        return str
