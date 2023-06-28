@@ -37,7 +37,7 @@ class Square:
                     [' ' * self.position[0] + '#' * self.size] * self.size
                     )
         else:
-            return
+            return str()
 
     @property
     def size(self):
