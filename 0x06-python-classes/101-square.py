@@ -30,11 +30,11 @@ class Square:
             print()
 
     def __str__(self):
-        ''' Prints square
+        ''' Prints square format
         '''
         str = ''
         if self.size:
-            str = '\n' * (self.position[1])
+            str += '\n' * (self.position[1])
             for i in range(self.size - 1):
                 str += ' ' * self.position[0] + '#' * self.size + '\n'
             str += ' ' * self.position[0] + '#' * self.size
