@@ -33,10 +33,10 @@ class Square:
         ''' Prints square format
         '''
         if self.size:
-            str = ''
-            str += '\n' * (self.position[1])
-            for i in range(self.size):
+            str = '\n' * (self.position[1])
+            for i in range(self.size - 1):
                 str += ' ' * self.position[0] + '#' * self.size + '\n'
+            str += ' ' * self.position[0] + '#' * self.size
             return str
         else:
             return str()
