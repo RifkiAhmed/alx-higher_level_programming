@@ -69,5 +69,5 @@ class SinglyLinkedList:
         self.__head = sorted(self.__head)
         for i in range(len(self.__head) - 1):
             str += '{}\n'.format(self.__head[i])
-        str += '{}'.format(self.__head[i])
+        str += '{}'.format(self.__head[i + 1])
         return str
