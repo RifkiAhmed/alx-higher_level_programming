@@ -33,7 +33,7 @@ class Square:
         ''' Prints square format
         '''
         if self.size:
-            str = '\n' * (self.position[1])
+            str = '\n' * (self.position[1]) + ''
             str += (' ' * self.position[0] + '#' * self.size + '\n') * self.size
             return str
         return str()
