@@ -11,8 +11,8 @@ class Square:
     def __init__(self, size=0, position=(0, 0)):
         ''' Initialise instance/object
         '''
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     def area(self):
         ''' Return the current square area
@@ -22,10 +22,10 @@ class Square:
     def my_print(self):
         ''' Prints square in stdout
         '''
-        if self.__size:
-            print('\n' * self.__position[1], end="")
-            for i in range(self.__size):
-                print(' ' * self.__position[0] + '#' * self.__size)
+        if self.size:
+            print('\n' * self.position[1], end="")
+            for i in range(self.size):
+                print(' ' * self.position[0] + '#' * self.size)
         else:
             print()
 
