@@ -35,7 +35,8 @@ class Square:
         if self.size:
             return '\n' * self.position[1] + (
                     ' ' * self.position[0] + '#' * self.size + '\n'
-                    ) * self.size
+                    ) * (self.size - 1) + (
+                    ' ' * self.position[0] + '#' * self.size)
         return str()
 
     @property
