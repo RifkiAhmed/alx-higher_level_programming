@@ -34,9 +34,7 @@ class Square:
         '''
         if self.size:
             str = '\n' * (self.position[1])
-            for i in range(self.size - 1):
-                str += ' ' * self.position[0] + '#' * self.size + '\n'
-            str += ' ' * self.position[0] + '#' * self.size
+            str += (' ' * self.position[0] + '#' * self.size + '\n') * self.size
             return str
         return str()
 
