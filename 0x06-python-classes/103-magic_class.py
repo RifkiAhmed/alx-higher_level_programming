@@ -3,7 +3,7 @@
     that do the same as a given python bytecode
 '''
 
-import math
+from math import pi
 
 
 class MagicClass:
@@ -21,9 +21,9 @@ class MagicClass:
     def area(self):
         ''' Returns area of current instance
         '''
-        return (self.__radius ** 2) * math.pi
+        return (self.__radius ** 2) * pi
 
     def circumference(self):
         ''' Returns the circumference of current instance
         '''
-        return 2 * math.pi * self.__radius
+        return 2 * pi * self.__radius
