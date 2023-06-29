@@ -7,7 +7,7 @@
 class MagicClass:
     ''' Definition of class MagicClass
     '''
-    def __init__(self, radius=0):
+    def __init__(self, radius):
         ''' Initialisation of current instance
         '''
         self.__radius = 0
