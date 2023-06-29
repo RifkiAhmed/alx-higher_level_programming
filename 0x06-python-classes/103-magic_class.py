@@ -3,6 +3,8 @@
     that do the same as a given python bytecode
 '''
 
+import math
+
 
 class MagicClass:
     ''' Definition of class MagicClass
