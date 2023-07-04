@@ -2,6 +2,7 @@
 ''' Module: Creates class Rectangle
 '''
 
+
 class Rectangle:
     ''' Defines an empty Rectangle class
     '''
