@@ -10,14 +10,14 @@ class Rectangle:
     def __init__(self, width=0, height=0):
         ''' Initialize instance
         '''
-        self.width = width
         self.height = height
+        self.width = width
 
     @property
     def width(self):
         ''' Gets width value
         '''
-        return width
+        return self.__width
 
     @width.setter
     def width(self, value):
@@ -33,7 +33,7 @@ class Rectangle:
     def height(self):
         ''' Gets height value
         '''
-        return height
+        return self.__height
 
     @height.setter
     def height(self, value):
