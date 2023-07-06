@@ -95,4 +95,4 @@ class Rectangle:
     def square(cls, size=0):
         ''' Returns a new Rectangle instance with width == height == size
         '''
-        return cls(width=size, height=size)
+        return Rectangle(width=size, height=size)
