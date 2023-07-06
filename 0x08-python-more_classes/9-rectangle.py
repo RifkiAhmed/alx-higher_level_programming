@@ -3,7 +3,7 @@
 '''
 
 
-class Rectangle:
+class Rectangle():
     ''' Defines a Rectangle class
     '''
     number_of_instances = 0
@@ -93,4 +93,6 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
+        ''' Returns a new rectangle instance with width == height == size
+        '''
         return cls(size, size)
