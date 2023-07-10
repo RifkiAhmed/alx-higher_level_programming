@@ -24,5 +24,5 @@ class Rectangle(BaseGeometry):
     def __str__(self):
         ''' Returns a string widht/height representation of Rectange instance
         '''
-        return '[' + str(type(self).__name__) + '] ' + str(self.__width) + (
+        return '[Rectangle] ' + str(self.__width) + (
                 '/' + str(self.__height))
