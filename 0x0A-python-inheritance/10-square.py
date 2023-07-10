@@ -23,4 +23,3 @@ class Square(Rectangle):
         ''' Calculates area of Rectangle instance
         '''
         return self.__size ** 2
-
