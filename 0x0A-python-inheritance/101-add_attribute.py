@@ -9,6 +9,6 @@ def add_attribute(obj, name, value):
     ''' Adds an attribute to obj if possible
     '''
     if "__dict__" in dir(obj):
-        onj.__setattr__(name, value)
+        obj.__setattr__(name, value)
     else:
         raise TypeError("can't add new attribute")
