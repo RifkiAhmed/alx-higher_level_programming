@@ -19,12 +19,26 @@ case all item of type int:
 	>>> my_list.append(2)
 	>>> my_list.append(3)
 	>>> my_list.append(5)
-	[1, 2, 3, 4, 5, ]
+	>>> my_list.print_sorted()
+	[1, 2, 3, 4, 5]
+	>>> my_list.clear()
+        >>> my_list.print_sorted()
+	[]
 
 case item of type int and float:
 
-	>>> my_list = MyList()
 	>>> my_list.append(1)
 	>>> my_list.append(4.5)
 	>>> my_list.append(2)
+	>>> my_list.print_sorted()
 	[1, 2, 4.5]
+	>>> my_list.clear()
+	>>> print(my_list)
+	[]
+	>>> my_list.append(1)
+        >>> my_list.append(4)
+        >>> my_list.append('2')
+        >>> my_list.print_sorted()
+	Traceback (most recent call last):
+	  ...
+	TypeError: '<' not supported between instances of 'str' and 'int'
