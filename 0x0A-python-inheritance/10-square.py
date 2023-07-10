@@ -11,7 +11,10 @@ class Square(Rectangle):
     def __init__(self, size):
         ''' Initialises instance of class Square
         '''
-        super().__init__(size, size)
+        try:
+            super().__init__(size, size)
+        except Exception as excep:
+            raise type(excep)(str(excep.args[0]))
         self.__size = size
 
     def area(self):
