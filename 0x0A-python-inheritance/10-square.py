@@ -16,8 +16,3 @@ class Square(Rectangle):
         except Exception as excep:
             raise type(excep)(str(excep.args[0]))
         self.__size = size
-
-    def area(self):
-        ''' Calculates area of Rectangle instance
-        '''
-        return self.__size ** 2
