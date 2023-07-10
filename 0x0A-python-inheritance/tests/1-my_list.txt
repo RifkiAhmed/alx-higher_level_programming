@@ -28,16 +28,3 @@ case item of type int and float:
 	>>> my_list.append(4.5)
 	>>> my_list.append(2)
 	[1, 2, 4.5]
-
-case one item of type string:
-
->>> my_list = MyList()
->>> my_list.append(1)
->>> my_list.append(4)
->>> my_list.append('2')
-Traceback (most recent call last):
-  File "c:\Users\Fox Pox\Documents\AAA\monty\Untitled-17.py", line 16, in <module>
-    my_list.print_sorted()
-  File "c:\Users\Fox Pox\Documents\AAA\monty\Untitled-17.py", line 9, in print_sorted
-    mylist.sort()
-TypeError: '<' not supported between instances of 'str' and 'int'
