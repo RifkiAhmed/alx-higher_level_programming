@@ -1,6 +1,3 @@
-The ``1-my_list`` module
-======================
-
 Using ``MyList``
 -------------------
 
@@ -11,8 +8,6 @@ This is an example text file in reStructuredText format.  First import
 
 Now use it:
 
-case all item of type int:
-
 	>>> my_list = MyList()
 	>>> my_list.append(1)
 	>>> my_list.append(4)
@@ -21,12 +16,13 @@ case all item of type int:
 	>>> my_list.append(5)
 	>>> my_list.print_sorted()
 	[1, 2, 3, 4, 5]
+	>>> print(my_list)
+	[1, 4, 2, 3, 5]
 	>>> my_list.clear()
+	>>> print(my_list)
+	[]
         >>> my_list.print_sorted()
 	[]
-
-case item of type int and float:
-
 	>>> my_list.append(1)
 	>>> my_list.append(4.5)
 	>>> my_list.append(2)
@@ -42,3 +38,12 @@ case item of type int and float:
 	Traceback (most recent call last):
 	  ...
 	TypeError: '<' not supported between instances of 'str' and 'int'
+	>>> my_list.clear()
+	>>> my_list.append('c')
+	>>> my_list.append('a')
+	>>> my_list.append('b')
+        >>> my_list.append('Z')
+	>>> my_list.print_sorted()
+	['Z', 'a', 'b', 'c']
+	>>> print(my_list)
+	['c', 'a', 'b', 'Z']
