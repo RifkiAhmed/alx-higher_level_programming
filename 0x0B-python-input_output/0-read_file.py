@@ -7,4 +7,4 @@ def read_file(filename=""):
     ''' Reads a text file UTF-8
     '''
     with open(filename, encoding="utf-8") as text:
-        print(text.read())
+        print(text.read(), end="")
