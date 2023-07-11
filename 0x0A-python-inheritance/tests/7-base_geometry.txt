@@ -22,27 +22,6 @@ First import ''BaseGeometry" from "7-base_geometry" module.
 	Traceback (most recent call last):
 	  ...
 	TypeError: width must be an integer
-	>>> bg.integer_validator("height", 0)
-	Traceback (most recent call last):
-	  ...
-        ValueError: height must be greater than 0
-	>>> bg.integer_validator("height", 5.1)
-        Traceback (most recent call last):
-          ...
-        TypeError: height must be an integer
-	>>> bg.integer_validator("height", 1)
-	>>> bg.integer_validator("height", "10")
-	Traceback (most recent call last):
-	  ...
-	TypeError: height must be an integer
-        >>> bg.integer_validator("height", [1, 2])
-        Traceback (most recent call last):
-          ...
-        TypeError: height must be an integer
-        >>> bg.integer_validator("height", (1, 2))
-        Traceback (most recent call last):
-          ...
-        TypeError: height must be an integer
         >>> bg.integer_validator("width", "10")
         Traceback (most recent call last):
           ...
@@ -55,10 +34,6 @@ First import ''BaseGeometry" from "7-base_geometry" module.
         Traceback (most recent call last):
           ...
         TypeError: width must be an integer
-	>>> bg.integer_validator("height")
-	Traceback (most recent call last):
-	  ...
-	TypeError: integer_validator() missing 1 required positional argument: 'value'
 	>>> bg.integer_validator()
 	Traceback (most recent call last):
 	  ...
@@ -67,18 +42,10 @@ First import ''BaseGeometry" from "7-base_geometry" module.
         Traceback (most recent call last):
           ...
         TypeError: width must be an integer
-        >>> bg.integer_validator("height", {"k": 1})
-        Traceback (most recent call last):
-          ...
-        TypeError: height must be an integer
         >>> bg.integer_validator("width", -1)
         Traceback (most recent call last):
           ...
         ValueError: width must be greater than 0
-	>>> bg.integer_validator("height", -1)
-        Traceback (most recent call last):
-          ...
-	ValueError: height must be greater than 0
 	>>> bg.integer_validator(name, value)
 	Traceback (most recent call last):
 	  ...
@@ -97,6 +64,10 @@ First import ''BaseGeometry" from "7-base_geometry" module.
 	  ...
 	TypeError: width must be an integer
         >>> bg.integer_validator("width", True)
+        Traceback (most recent call last):
+          ...
+        TypeError: width must be an integer
+        >>> bg.integer_validator("width", {0, 1})
         Traceback (most recent call last):
           ...
         TypeError: width must be an integer
