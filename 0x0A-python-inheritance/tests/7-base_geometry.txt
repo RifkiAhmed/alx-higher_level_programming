@@ -92,3 +92,7 @@ First import ''BaseGeometry" from "7-base_geometry" module.
 	Traceback (most recent call last):
 	 ...
 	TypeError: BaseGeometry() takes no arguments
+	>>> bg.integer_validator("width", None)
+	Traceback (most recent call last):
+	  ...
+	TypeError: value must be an integer
