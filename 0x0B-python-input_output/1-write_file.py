@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-''' Module for reading a text file UTF-8
+''' Module for writing to a text file UTF-8
 '''
 
 
 def write_file(filename="", text=""):
-    ''' Reads a text file UTF-8
+    ''' Writes to a text file UTF-8
     '''
     with open(filename, encoding="utf-8", mode="w") as file1:
         return file1.write(text)
