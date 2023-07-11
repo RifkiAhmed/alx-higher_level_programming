@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-''' Module for reading a text file UTF-8
+''' Module for reading from a text file UTF-8
 '''
 
 
 def read_file(filename=""):
-    ''' Reads a text file UTF-8
+    ''' Reads from a text file UTF-8
     '''
-    with open(filename, encoding="utf-8") as text:
-        print(text.read(), end="")
+    with open(filename, encoding="utf-8") as file0:
+        print(file0.read(), end="")
