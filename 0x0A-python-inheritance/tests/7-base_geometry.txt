@@ -51,3 +51,7 @@ First import ''BaseGeometry" from "7-base_geometry" module.
         Traceback (most recent call last):
           ...
         TypeError: width must be an integer
+	>>> bg.integer_validator("height")
+	Traceback (most recent call last):
+	  ...
+	TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
