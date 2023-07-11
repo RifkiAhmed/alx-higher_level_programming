@@ -83,3 +83,7 @@ First import ''BaseGeometry" from "7-base_geometry" module.
 	Traceback (most recent call last):
 	  ...
 	NameError: name 'name' is not defined
+	>>> bg.integer_validator("size", 2, 2)
+	Traceback (most recent call last):
+	  ...
+	TypeError: integer_validator() takes 3 positional arguments but 4 were given
