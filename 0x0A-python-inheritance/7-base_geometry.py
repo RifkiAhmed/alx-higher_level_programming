@@ -19,5 +19,3 @@ class BaseGeometry(object):
             raise TypeError(str(name) + ' must be an integer')
         elif value <= 0:
             raise ValueError(str(name) + ' must be greater than 0')
-        else:
-            self.name = value
