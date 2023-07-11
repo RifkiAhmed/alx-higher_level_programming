@@ -87,4 +87,4 @@ First import ''BaseGeometry" from "7-base_geometry" module.
 	Traceback (most recent call last):
 	  ...
 	TypeError: integer_validator() takes 3 positional arguments but 4 were given
-	>>> bg.integer_validator(2, 2 )
+	>>> bg.integer_validator(2, 2)
