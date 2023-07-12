@@ -6,8 +6,10 @@
 def pascal_triangle(n):
     ''' Prints Pascal triangle
     '''
-    matrix = []
+    if n <= 0:
+        return []
+    m = []
     for i in range(n):
         s = str(11 ** i)
-        matrix.append(list(c for c in s))
-    return matrix
+        m.append(list(int(c) for c in s))
+    return m
