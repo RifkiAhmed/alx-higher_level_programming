@@ -6,9 +6,9 @@
 def pascal_triangle(n):
     ''' Prints Pascal triangle
     '''
-    if n <= 0 or type(n) is not int:
+    if n < 0:
         return []
-    elif type(n) is int:
+    else:
         m = []
         for i in range(n):
             m.append(list(int(c) for c in str(11 ** i)))
