@@ -8,8 +8,10 @@ def pascal_triangle(n):
     '''
     if n < 0:
         return []
-    else:
-        m = []
-        for i in range(n):
-            m.append(list(int(c) for c in str(11 ** i)))
-        return m
+    my_matrix = []
+    for i in range(1, n + 1):
+        my_list = [1]
+        for j in range(1, i):
+            my_list.append(my_list[j - 1] * (i - j) // j)
+        my_matrix.append(my_list)
+    return my_matrix
