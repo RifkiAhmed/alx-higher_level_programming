@@ -1,10 +1,12 @@
 #!/usr/bin/python3
-'''
+''' Module for inserting a line of text to a file
+    after each line containing a specific string
 '''
 
 
 def append_after(filename="", search_string="", new_string=""):
-    '''
+    ''' Insetrs a line of text to a line after each
+        line containing a specific string
     '''
     text = ""
     with open(filename, encoding="utf8", mode="r") as file13:
