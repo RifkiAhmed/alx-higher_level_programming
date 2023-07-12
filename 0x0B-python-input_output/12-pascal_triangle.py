@@ -10,6 +10,5 @@ def pascal_triangle(n):
         return []
     m = []
     for i in range(n):
-        s = str(11 ** i)
-        m.append(list(int(c) for c in s))
+        m.append(list(int(c) for c in str(11 ** i)))
     return m
