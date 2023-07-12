@@ -6,7 +6,7 @@
 def pascal_triangle(n):
     ''' Prints Pascal triangle
     '''
-    if n <= 0:
+    if n <= 0 or type(n) is not int:
         return []
     elif type(n) is int:
         m = []
