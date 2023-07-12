@@ -8,7 +8,7 @@ def pascal_triangle(n):
     '''
     if n <= 0:
         return []
-    else:
+    elif type(n) is int:
         m = []
         for i in range(n):
             m.append(list(int(c) for c in str(11 ** i)))
