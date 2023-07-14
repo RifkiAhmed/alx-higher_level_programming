@@ -9,11 +9,11 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         ''' Initialize instance '''
+        super().__init__(id)
         self.width = width
         self.height = height
         self.x = x
         self.y = y
-        super().__init__(id)
 
     def area(self):
         ''' Gets Rectangle area '''
@@ -23,6 +23,19 @@ class Rectangle(Base):
         ''' Prints Rectangle with the character # '''
         print('\n' * self.__y, end="")
         print('\n'.join([' ' * self.__x + '#' * self.__width] * self.__height))
+
+    def update(self, *args):
+        ''' Updates instances attributtes '''
+        if len(args) >= 1:
+            self.id = args[0]
+        if len(args) >= 2:
+            self.__width = args[1]
+        if len(args) >= 3:
+            self.__height = args[2]
+        if len(args) >= 4:
+            self.__x = args[3]
+        if len(args) >= 5:
+            self.__y = args[4]
 
     def __str__(self):
         ''' Returns a string representation of Rectangle instance '''
