@@ -19,6 +19,10 @@ class Rectangle(Base):
         ''' Gets Rectangle area '''
         return self.__width * self.__height
 
+    def display(self):
+        ''' Prints Rectangle with the character # '''
+        print('\n'.join(['#' * self.__width] * self.__height))
+
     @property
     def width(self):
         ''' Gets width value '''
