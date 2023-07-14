@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 ''' Module for Rectangle class that inherits from Base class
 '''
-from models.base import Base
+from base import Base
 
 
 class Rectangle(Base):
@@ -12,46 +12,61 @@ class Rectangle(Base):
         self.width = width
         self.height = height
         self.x = x
-        self.__init__(id)
+        self.y = y
+        super().__init__(id)
 
-# Getters properties
     @property
-    def get_width():
+    def width(self):
         ''' Gets width value '''
         return self.__width
 
     @property
-    def get_height():
-        ''' Gets width value '''
+    def height(self):
+        ''' Gets height value '''
         return self.__height
 
     @property
-    def get_x():
-        ''' Gets width value '''
+    def x(self):
+        ''' Gets x value '''
         return self.__x
 
     @property
-    def get_y():
-        ''' Gets width value '''
+    def y(self):
+        ''' Gets y value '''
         return self.__y
 
-# Setters properties
-    @set_width.setter
-    def set_width():
-        ''' Gets width value '''
-        return self.__height
+    @width.setter
+    def width(self, width):
+        ''' Sets width value '''
+        if type(width) is not int:
+            raise TypeError("width must be an integer")
+        if width <= 0:
+            raise ValueError("width must be > 0")
+        self.__width = width
 
-    @set_height.setter
-    def set_height():
-        ''' Gets width value '''
-        return self.__height
+    @height.setter
+    def height(self, height):
+        ''' Sets height value '''
+        if type(height) is not int:
+            raise TypeError("height must be an integer")
+        if height <= 0:
+            raise ValueError("height must be > 0")
+        self.__height = height
 
-    @set_x.setter
-    def set_x():
-        ''' Gets width value '''
-        return self.__x
+    @x.setter
+    def x(self, x):
+        ''' Sets x value '''
+        if type(x) is not int:
+            raise TypeError("x must be an integer")
+        if x < 0:
+            raise ValueError("x must be >= 0")
+        self.__x = x
 
-    @set_y.setter
-    def set_y():
-        ''' Gets width value '''
-        return self.__y
+    @y.setter
+    def y(self, y):
+        ''' Sets y value '''
+        if type(y) is not int:
+            raise TypeError("y must be an integer")
+        if y < 0:
+            raise ValueError("y must be >= 0")
+        self.__y = y
