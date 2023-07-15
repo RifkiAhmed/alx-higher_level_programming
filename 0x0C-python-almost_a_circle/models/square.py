@@ -11,14 +11,6 @@ class Square(Rectangle):
         ''' Initialize instance '''
         super().__init__(size, size, x, y, id)
 
-    def __str__(self):
-        ''' Returns a string representation of Square instance '''
-        return "[Square] ({0}) {1}/{2} - {3}".format(
-            self.id,
-            self.x,
-            self.y,
-            self.width)
-
     def update(self, *args, **kwargs):
         ''' Updates Square attributes '''
         tp = ("id", "size", "x", "y")
@@ -29,6 +21,19 @@ class Square(Rectangle):
             for key in kwargs:
                 if key in tp:
                     self.__setattr__(key, kwargs[key])
+
+    def to_dictionary(self):
+        """ Returns dictionary representation of a Square insatance """
+        tp = ("id", "size", "x", "y")
+        return {key: getattr(self, key) for key in tp}
+
+    def __str__(self):
+        ''' Returns a string representation of Square instance '''
+        return "[Square] ({0}) {1}/{2} - {3}".format(
+            self.id,
+            self.x,
+            self.y,
+            self.width)
 
     @property
     def size(self):
