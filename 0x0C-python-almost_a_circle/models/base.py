@@ -1,7 +1,8 @@
-'''#!/usr/bin/python3'''
+#!/usr/bin/python3
 ''' Module for Base class
 '''
 import json
+
 
 class Base:
     ''' Representing Base class '''
@@ -21,3 +22,10 @@ class Base:
         if list_dictionaries == []:
             return "[]"
         return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """ Writes the JSON string representation of list_objs to a file """
+        with open("Rectangle.json", encoding="utf-8", mode="w") as file:
+            file.write(cls.to_json_string(list(
+                cls.to_dictionary(ob) for ob in list_objs)))
