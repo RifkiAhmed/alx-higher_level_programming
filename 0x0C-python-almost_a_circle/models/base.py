@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-''' Module for Base class
-'''
-import json
+''' Module for Base class '''
+from json import dumps, loads
+from csv import writer, reader
 
 
 class Base:
@@ -18,30 +18,29 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        ''' Returns the JSON string representation of list_dictionaries '''
+        ''' Returns JSON string representation of list_dictionaries '''
         if list_dictionaries == []:
-            return "[]"
-        return json.dumps(list_dictionaries)
+            return '[]'
+        return dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_instances):
-        ''' Writes the JSON string representation of list_instances to a file
-        '''
-        filename = cls.__name__ + ".json"
-        with open(filename, encoding="utf-8", mode="w") as file:
+        ''' Writes JSON string representation of list_instances to a file '''
+        filename = cls.__name__ + '.json'
+        with open(filename, encoding='utf-8', mode='w') as file:
             file.write(cls.to_json_string(list(
                 cls.to_dictionary(ob) for ob in list_instances)))
 
     @staticmethod
     def from_json_string(json_string):
-        ''' Returns the list of the JSON string representation json_string '''
-        if json_string is None or json_string == "":
+        ''' Returns list of the JSON string representation json_string '''
+        if json_string is None or json_string == '':
             return []
-        return json.loads(json_string)
+        return loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
-        '''Loads instance from dictionary.'''
+        ''' Loads instance from dictionary '''
         from rectangle import Rectangle
         from square import Square
 
@@ -55,12 +54,64 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        ''' Returns a list of instances '''
-        filename = cls.__name__ + ".json"
+        ''' Imports a list of instances from file '''
+        filename = cls.__name__ + '.json'
         try:
             with open(filename, encoding='utf-8', mode='r') as file:
                 dict_list = Base.from_json_string(file.read())
                 instances = list(cls.create(**dic) for dic in dict_list)
-                return instances
+            return instances
         except Exception:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        ''' Serialize list of objects in CSV file '''
+        from rectangle import Rectangle
+        from square import Square
+
+        filename = cls.__name__ + '.csv'
+        if list_objs is not None:
+            if cls is Rectangle:
+                list_objs = [
+                        [obj.id, obj.width, obj.height, obj.x, obj.y]
+                        for obj in list_objs
+                        ]
+            elif cls is Square:
+                list_objs = [
+                        [obj.id, obj.size, obj.x, obj.y]
+                        for obj in list_objs
+                        ]
+        with open(filename, encoding='utf-8', mode='w', newline='') as file:
+            csvwriter = writer(file)
+            csvwriter.writerows(list_objs)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        ''' Deserialize CSV file '''
+        from rectangle import Rectangle
+        from square import Square
+
+        filename = cls.__name__ + '.csv'
+        with open(filename, encoding='utf-8', mode='r') as file:
+            csvreader = reader(file)
+            instances = []
+            for row in csvreader:
+                row = [int(item) for item in row]
+                if cls is Rectangle:
+                    dictionary = {
+                            'id': row[0],
+                            'width': row[1],
+                            'height': row[2],
+                            'x': row[3],
+                            'y': row[4]
+                            }
+                elif cls is Square:
+                    dictionary = {
+                            'id': row[0],
+                            'size': row[1],
+                            'x': row[2],
+                            'y': row[3]
+                            }
+                instances.append(cls.create(**dictionary))
+            return instances
