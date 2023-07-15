@@ -19,6 +19,17 @@ class Square(Rectangle):
             self.y,
             self.width)
 
+    def update(self, *args, **kwargs):
+        ''' Updates Square attributes '''
+        tp = ("id", "size", "x", "y")
+        if args:
+            for i, item in enumerate(args):
+                self.__setattr__(tp[i], args[i])
+        else:
+            for key in kwargs:
+                if key in tp:
+                    self.__setattr__(key, kwargs[key])
+
     @property
     def size(self):
         ''' Gets Square size '''
