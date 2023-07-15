@@ -1,8 +1,7 @@
-#!/usr/bin/python3
+'''#!/usr/bin/python3'''
 ''' Module for Base class
 '''
 import json
-
 
 class Base:
     ''' Representing Base class '''
@@ -16,6 +15,7 @@ class Base:
             type(self).__nb_objects += 1
             self.id = type(self).__nb_objects
 
+    @staticmethod
     def to_json_string(list_dictionaries):
         """ Returns the JSON string representation of list_dictionaries """
         if list_dictionaries == []:
