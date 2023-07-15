@@ -27,7 +27,8 @@ class Base:
     def save_to_file(cls, list_instances):
         ''' Writes the JSON string representation of list_instances to a file
         '''
-        with open("Rectangle.json", encoding="utf-8", mode="w") as file:
+        filename = cls.__name__ + ".json"
+        with open(filename, encoding="utf-8", mode="w") as file:
             file.write(cls.to_json_string(list(
                 cls.to_dictionary(ob) for ob in list_instances)))
 
@@ -51,3 +52,15 @@ class Base:
             instance = Square(1)
         instance.update(**dictionary)
         return instance
+
+    @classmethod
+    def load_from_file(cls):
+        ''' Returns a list of instances '''
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, encoding='utf-8', mode='r') as file:
+                dict_list = Base.from_json_string(file.read())
+                instances = list(cls.create(**dic) for dic in dict_list)
+                return instances
+        except Exception:
+            return []
