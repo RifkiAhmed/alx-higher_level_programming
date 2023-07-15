@@ -35,6 +35,11 @@ class Rectangle(Base):
                 if key in tp:
                     self.__setattr__(key, kwargs[key])
 
+    def to_dictionary(self):
+        ''' Returns the dictinary representation of an Rectangle '''
+        tp = ("id", "width", "height", "x", "y")
+        return {key: getattr(self, key) for key in tp}
+
     def __str__(self):
         ''' Returns a string representation of Rectangle instance '''
         return "[Rectangle] ({0}) {1}/{2} - {3}/{4}".format(
