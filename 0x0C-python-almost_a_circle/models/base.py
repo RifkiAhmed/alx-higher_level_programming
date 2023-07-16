@@ -127,7 +127,7 @@ class Base:
             turtle = Turtle()
             screen = Screen()
             screen.bgcolor("yellow")
-            screen.title('Welcome to the turtle zoo!')
+            screen.title('Welcome to turtle drawings!')
             turtle.pen(
                     {
                         'fillcolor': 'orange',
@@ -154,6 +154,6 @@ class Base:
                     if isinstance(form, Rectangle):
                         turtle.fd(form.height)
                     else:
-                        turtle.fd(form.size * px)
+                        turtle.fd(form.size)
                     turtle.rt(90)
             screen.exitonclick()
