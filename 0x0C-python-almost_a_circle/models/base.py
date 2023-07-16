@@ -115,3 +115,45 @@ class Base:
                             }
                 instances.append(cls.create(**dictionary))
             return instances
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        ''' Opens a window and draws all the Rectangles and Squares '''
+        from turtle import Turtle, Screen
+        from random import random
+
+        mylist = list_rectangles[:] + list_squares[:]
+        if mylist is not None:
+            turtle = Turtle()
+            screen = Screen()
+            screen.bgcolor("yellow")
+            screen.title('Welcome to the turtle zoo!')
+            turtle.pen(
+                    {
+                        'fillcolor': 'orange',
+                        'pensize': 5,
+                        'resizemode': 'user',
+                        'stretchfactor': (1, 1)
+                    })
+            turtle.shape('turtle')
+            turtle.speed('slowest')
+            for form in mylist:
+                turtle.clear()
+                turtle.penup()
+                turtle.setpos(0, 0)
+                turtle.pencolor(random(), random(), random())
+                turtle.setposition(form.x, form.y)
+                turtle.write(form)
+                turtle.pendown()
+                for i in [1, 2]:
+                    if isinstance(form, Rectangle):
+                        turtle.fd(form.width)
+                    else:
+                        turtle.fd(form.size)
+                    turtle.rt(90)
+                    if isinstance(form, Rectangle):
+                        turtle.fd(form.height)
+                    else:
+                        turtle.fd(form.size * px)
+                    turtle.rt(90)
+            screen.exitonclick()
