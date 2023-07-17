@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 ''' Module for Base class '''
-import json
+from json import dumps, loads
 from csv import writer, reader
 
 
@@ -20,8 +20,8 @@ class Base:
     def to_json_string(list_dictionaries):
         ''' Returns JSON string representation of list_dictionaries '''
         if list_dictionaries is None or list_dictionaries == []:
-            return '[]'
-        return json.dumps(list_dictionaries)
+            return "[]"
+        return dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_instances):
@@ -36,7 +36,7 @@ class Base:
         ''' Returns list of the JSON string representation json_string '''
         if json_string is None or json_string == '':
             return []
-        return json.loads(json_string)
+        return loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
