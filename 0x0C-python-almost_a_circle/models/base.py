@@ -89,6 +89,8 @@ class Base:
     @classmethod
     def load_from_file_csv(cls):
         ''' Deserialize CSV file '''
+        from models.rectangle import Rectangle
+        from models.square import Square
         filename = cls.__name__ + '.csv'
         with open(filename, encoding='utf-8', mode='r') as file:
             csvreader = reader(file)
