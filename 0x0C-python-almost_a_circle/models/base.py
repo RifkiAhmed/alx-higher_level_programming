@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 ''' Module for Base class '''
-from models.rectangle import Rectangle
-from models.square import Square
 from json import dumps, loads
 from csv import writer, reader
 
@@ -45,6 +43,8 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         ''' Loads instance from dictionary '''
+        from models.rectangle import Rectangle
+        from models.square import Square
         instance = None
         if cls is Rectangle:
             instance = Rectangle(1, 1)
