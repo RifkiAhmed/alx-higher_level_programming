@@ -45,10 +45,33 @@ class BaseTest(unittest.TestCase):
         base2 = Base()
         self.assertFalse(base1 == base2)
 
-    def test__to_json_string(self):
+    def test__Rectangle_to_json_string(self):
         ''' Test to_json_string() static method '''
-        r1 = Rectangle(10, 7, 2, 8)
+        r1 = Rectangle(10, 7, 2, 48)
+        r2 = Rectangle(10, 7)
         d1 = r1.to_dictionary()
         self.assertEqual(dumps([d1]), Base.to_json_string([d1]))
+        d2 = r2.to_dictionary()
+        list_dictionaries = [d1, d2]
+        self.assertEqual(
+                dumps([d1, d2]), Base.to_json_string(list_dictionaries))
+        self.assertNotIsInstance(type(r1), type(Base.to_json_string([d1])))
         self.assertEqual('[]', Base.to_json_string([]))
         self.assertEqual('[]', Base.to_json_string(None))
+        self.assertRaises(TypeError, Base.to_json_string)
+
+    def test__Square_to_json_string(self):
+        ''' Test to_json_string() static method '''
+        s1 = Square(10, 7, 2)
+        s2 = Square(10)
+        d1 = s1.to_dictionary()
+        self.assertEqual(dumps([d1]), Base.to_json_string([d1]))
+        self.assertIsInstance(Base.to_json_string([d1]), str)
+        d2 = s2.to_dictionary()
+        list_dictionaries = [d1, d2]
+        self.assertEqual(
+                dumps([d1, d2]), Base.to_json_string(list_dictionaries))
+        self.assertNotIsInstance(type(s1), type(Base.to_json_string([d1])))
+        self.assertEqual('[]', Base.to_json_string([]))
+        self.assertEqual('[]', Base.to_json_string(None))
+        self.assertRaises(TypeError, Base.to_json_string)
