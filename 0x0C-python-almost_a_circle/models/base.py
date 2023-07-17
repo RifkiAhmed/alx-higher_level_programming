@@ -23,6 +23,7 @@ class Base:
             if list_dictionaries is None or list_dictionaries == []:
                 return '[]'
             return dumps(list_dictionaries)
+        return '[]'
 
     @classmethod
     def save_to_file(cls, list_instances):
