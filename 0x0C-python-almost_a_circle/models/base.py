@@ -6,20 +6,20 @@ from csv import writer, reader
 
 class Base:
     ''' Representing Base class '''
-    __nb_instanceects = 0
+    __nb_objects = 0
 
     def __init__(self, id=None):
         ''' Initialize instance '''
         if id is not None:
             self.id = id
         else:
-            type(self).__nb_instanceects += 1
-            self.id = type(self).__nb_instanceects
+            Base.__nb_objects += 1
+            self.id = Base.__nb_objects
 
     @staticmethod
     def to_json_string(list_dictionaries):
         ''' Returns JSON string representation of list_dictionaries '''
-        if list_dictionaries is None or not list_dictionaries:
+        if list_dictionaries is None or list_dictionaries == []:
             return "[]"
         return dumps(list_dictionaries)
 
