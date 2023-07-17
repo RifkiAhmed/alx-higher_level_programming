@@ -43,9 +43,6 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         ''' Loads instance from dictionary '''
-        from models.rectangle import Rectangle
-        from models.square import Square
-
         instance = None
         if cls is Rectangle:
             instance = Rectangle(1, 1)
@@ -69,9 +66,6 @@ class Base:
     @classmethod
     def save_to_file_csv(cls, list_objs):
         ''' Serialize list of objects in CSV file '''
-        from models.rectangle import Rectangle
-        from models.square import Square
-
         filename = cls.__name__ + '.csv'
         if list_objs is not None:
             if cls is Rectangle:
@@ -91,9 +85,6 @@ class Base:
     @classmethod
     def load_from_file_csv(cls):
         ''' Deserialize CSV file '''
-        from models.rectangle import Rectangle
-        from models.square import Square
-
         filename = cls.__name__ + '.csv'
         with open(filename, encoding='utf-8', mode='r') as file:
             csvreader = reader(file)
@@ -123,13 +114,13 @@ class Base:
         ''' Opens a window and draws all the Rectangles and Squares '''
         from turtle import Turtle, Screen
         from random import random
-
         mylist = list_rectangles[:] + list_squares[:]
         if mylist is not None:
             turtle = Turtle()
             screen = Screen()
             screen.bgcolor("yellow")
             screen.title('Welcome to turtle drawings!')
+            screen.delay(30)
             turtle.pen(
                     {
                         'fillcolor': 'orange',
@@ -142,8 +133,10 @@ class Base:
             for form in mylist:
                 turtle.clear()
                 turtle.penup()
+                turtle.ht()
                 turtle.setpos(0, 0)
                 turtle.pencolor(random(), random(), random())
+                turtle.st()
                 turtle.setposition(form.x, form.y)
                 turtle.write(form)
                 turtle.pendown()
