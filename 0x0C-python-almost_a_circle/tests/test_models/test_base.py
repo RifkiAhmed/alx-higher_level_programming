@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 ''' Tests cases model for Base class '''
 import unittest
+from json import dumps, loads
 from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
 
 
 class BaseTest(unittest.TestCase):
@@ -41,3 +44,11 @@ class BaseTest(unittest.TestCase):
         base1 = Base()
         base2 = Base()
         self.assertFalse(base1 == base2)
+
+    def test__to_json_string(self):
+        ''' Test to_json_string() static method '''
+        r1 = Rectangle(10, 7, 2, 8)
+        d1 = r1.to_dictionary()
+        self.assertEqual(dumps([d1]), Base.to_json_string([d1]))
+        self.assertEqual('[]', Base.to_json_string([]))
+        self.assertEqual('[]', Base.to_json_string(None))
