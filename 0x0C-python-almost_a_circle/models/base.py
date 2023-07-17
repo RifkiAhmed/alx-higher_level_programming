@@ -146,14 +146,8 @@ class Base:
                 turtle.write(form)
                 turtle.pendown()
                 for i in [1, 2]:
-                    if isinstance(form, Rectangle):
-                        turtle.fd(form.width)
-                    else:
-                        turtle.fd(form.size)
+                    turtle.fd(form.width)
                     turtle.rt(90)
-                    if isinstance(form, Rectangle):
-                        turtle.fd(form.height)
-                    else:
-                        turtle.fd(form.size)
+                    turtle.fd(form.height)
                     turtle.rt(90)
             screen.exitonclick()
