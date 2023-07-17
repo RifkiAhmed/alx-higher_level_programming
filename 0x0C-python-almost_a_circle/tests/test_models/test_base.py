@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-''' Unit tests for Base class methods and instances '''
+''' Tests cases model for Base class '''
 import unittest
 from models.base import Base
 
@@ -20,12 +20,12 @@ class BaseTest(unittest.TestCase):
         self.assertIsNotNone(self.base1.id)
         self.assertEqual(self.base1.id, 99)
 
-    def test_init(self):
+    def test_init1(self):
         ''' Test __init__() with 2 args'''
         args = (1, 2)
         self.assertRaises(TypeError, Base, *args)
 
-    def test_init3(self):
+    def test_init2(self):
         ''' Test __init__() with one and two key words arguments '''
         kwargs = {'id': 12}
         self.assertIs(Base(**kwargs).id, 12)
