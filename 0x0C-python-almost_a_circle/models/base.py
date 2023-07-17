@@ -19,7 +19,7 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         ''' Returns JSON string representation of list_dictionaries '''
-        if list_dictionaries == []:
+        if list_dictionaries is None:
             return '[]'
         return dumps(list_dictionaries)
 
@@ -41,8 +41,8 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         ''' Loads instance from dictionary '''
-        from rectangle import Rectangle
-        from square import Square
+        from models.rectangle import Rectangle
+        from models.square import Square
 
         instance = None
         if cls is Rectangle:
@@ -67,8 +67,8 @@ class Base:
     @classmethod
     def save_to_file_csv(cls, list_objs):
         ''' Serialize list of objects in CSV file '''
-        from rectangle import Rectangle
-        from square import Square
+        from models.rectangle import Rectangle
+        from models.square import Square
 
         filename = cls.__name__ + '.csv'
         if list_objs is not None:
@@ -89,8 +89,8 @@ class Base:
     @classmethod
     def load_from_file_csv(cls):
         ''' Deserialize CSV file '''
-        from rectangle import Rectangle
-        from square import Square
+        from models.rectangle import Rectangle
+        from models.square import Square
 
         filename = cls.__name__ + '.csv'
         with open(filename, encoding='utf-8', mode='r') as file:
