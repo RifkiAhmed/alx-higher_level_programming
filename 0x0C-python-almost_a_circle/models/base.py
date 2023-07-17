@@ -68,6 +68,8 @@ class Base:
     @classmethod
     def save_to_file_csv(cls, list_objs):
         ''' Serialize list of objects in CSV file '''
+        from models.rectangle import Rectangle
+        from models.square import Square
         filename = cls.__name__ + '.csv'
         if list_objs is not None:
             if cls is Rectangle:
