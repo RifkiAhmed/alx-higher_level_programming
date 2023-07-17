@@ -28,8 +28,10 @@ class Base:
         ''' Writes JSON string representation of list_instances to a file '''
         filename = cls.__name__ + '.json'
         with open(filename, encoding='utf-8', mode='w') as file:
-            file.write(cls.to_json_string(list(
-                cls.to_dictionary(ob) for ob in list_instances)))
+            file.write(
+                    cls.to_json_string(
+                        [] if list_instances is None else list(
+                            cls.to_dictionary(ob) for ob in list_instances)))
 
     @staticmethod
     def from_json_string(json_string):
