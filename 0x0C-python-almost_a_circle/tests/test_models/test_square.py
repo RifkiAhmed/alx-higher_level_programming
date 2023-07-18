@@ -129,22 +129,22 @@ class TestSquare(unittest.TestCase):
     def test__squareSaveToFileNoneList(self):
         ''' Test save_to_file() class method '''
         Square.save_to_file(None)
-        with open("Square.json", encoding="utf-8", mode="r") as RectFile:
-            self.assertEqual('[]', RectFile.read())
+        with open("Square.json", encoding="utf-8", mode="r") as SquareFile:
+            self.assertEqual('[]', SquareFile.read())
 
     def test__squareSaveToFileEmptyList(self):
         ''' Test save_to_file() class method '''
         Square.save_to_file([])
-        with open("Square.json", encoding="utf-8", mode="r") as RectFile:
-            self.assertEqual('[]', RectFile.read())
+        with open("Square.json", encoding="utf-8", mode="r") as SquareFile:
+            self.assertEqual('[]', SquareFile.read())
 
     def test__squareSaveToFile(self):
         ''' Test save_to_file() class method '''
         Square1 = Square(1)
         Square.save_to_file([Square1])
-        with open("Square.json", encoding="utf-8", mode="r") as RectFile:
+        with open("Square.json", encoding="utf-8", mode="r") as SquareFile:
             str1 = Square.to_json_string([Square1.to_dictionary()])
-            self.assertEqual(str1, RectFile.read())
+            self.assertEqual(str1, SquareFile.read())
 
     def test__SquareLoadFromFileExist(self):
         ''' Test load_from__file() class method '''
