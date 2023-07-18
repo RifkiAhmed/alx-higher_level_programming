@@ -132,7 +132,7 @@ class TestSquare(unittest.TestCase):
         ''' Test save_to_file() class method '''
         Square.save_to_file(None)
         with open("Square.json", mode="r") as SquareFile:
-            self.assertNotEqual(' ', SquareFile.read())
+            self.assertEqual('', SquareFile.read())
 
     def test__squareSaveToFileEmptyList(self):
         ''' Test save_to_file() class method '''
