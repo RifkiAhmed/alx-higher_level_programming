@@ -16,10 +16,10 @@ class TestSquare(unittest.TestCase):
         self.s1 = Square(*self.args[: 4])
         self.s2 = Square(**self.kwargs)
 
-    try:
-        os.remove("Square.json")
-    except Exception:
-        pass
+        try:
+            os.remove("Square.json")
+        except Exception:
+            pass
 
     def tearDown(self):
         ''' Removes variable '''
@@ -131,8 +131,8 @@ class TestSquare(unittest.TestCase):
     def test__squareSaveToFileNoneList(self):
         ''' Test save_to_file() class method '''
         Square.save_to_file(None)
-        with open("Square.json", mode="r") as SquareFile:
-            self.assertEqual('', SquareFile.read())
+        with open("Square.json", encoding="utf-8", mode="r") as SquareFile:
+            self.assertEqual('[]', SquareFile.read())
 
     def test__squareSaveToFileEmptyList(self):
         ''' Test save_to_file() class method '''
