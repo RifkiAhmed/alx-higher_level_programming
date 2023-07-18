@@ -21,7 +21,7 @@ class BaseTest(unittest.TestCase):
     def test_id(self):
         ''' Test instance attribute "id" '''
         base2 = Base()
-        self.assertEqual(base2.id, 7)
+        self.assertEqual(base2.id, 11)
         self.assertEqual(self.base1.id, 99)
         self.assertIs(self.base1.id, 99)
 
@@ -79,3 +79,33 @@ class BaseTest(unittest.TestCase):
         self.assertEqual('[]', Base.to_json_string([]))
         self.assertEqual('[]', Base.to_json_string(None))
         self.assertRaises(TypeError, Base.to_json_string)
+
+    def test__Rectangle_from_json_string(self):
+        ''' Test from_json_string() static method '''
+        r1 = Rectangle(10, 7, 2, 48)
+        r2 = Rectangle(10, 7)
+        str1 = Base.to_json_string(r1.to_dictionary())
+        self.assertEqual(loads(str1), Base.from_json_string(str1))
+        list_dictionaries = [r1.to_dictionary(), r2.to_dictionary()]
+        str2 = Base.to_json_string(list_dictionaries)
+        self.assertEqual(
+                loads(str2), Base.from_json_string(str2))
+        self.assertNotIsInstance(type(r1), type(Base.from_json_string(str1)))
+        self.assertEqual([], Base.from_json_string(''))
+        self.assertEqual([], Base.from_json_string(None))
+        self.assertRaises(TypeError, Base.from_json_string)
+
+    def test__Square_from_json_string(self):
+        ''' Test from_json_string() static method '''
+        s1 = Square(10, 7, 2)
+        s2 = Square(10)
+        str1 = Base.to_json_string(s1.to_dictionary())
+        self.assertEqual(loads(str1), Base.from_json_string(str1))
+        list_squares = [s1.to_dictionary(), s2.to_dictionary()]
+        str2 = Base.to_json_string(list_squares)
+        self.assertEqual(
+                loads(str2), Base.from_json_string(str2))
+        self.assertNotIsInstance(type(s1), type(Base.from_json_string(str1)))
+        self.assertEqual([], Base.from_json_string(''))
+        self.assertEqual([], Base.from_json_string(None))
+        self.assertRaises(TypeError, Base.from_json_string)
