@@ -22,6 +22,7 @@ class BaseTest(unittest.TestCase):
         ''' Test instance attribute "id" '''
         self.assertIsNotNone(self.base1.id)
         self.assertEqual(self.base1.id, 99)
+        self.assertIs(self.base1.id, 99)
 
     def test_init1(self):
         ''' Test __init__() with 2 args'''
@@ -30,8 +31,10 @@ class BaseTest(unittest.TestCase):
 
     def test_init2(self):
         ''' Test __init__() with one and two key words arguments '''
-        kwargs = {'id': 12}
-        self.assertIs(Base(**kwargs).id, 12)
+        kwargs = {'id': [1, 2]}
+        self.assertEqual(Base(**kwargs).id, [1, 2])
+        self.assertIsInstance(Base(**kwargs).id, list)
+        self.assertNotIsInstance(Base(**kwargs).id, int)
         kwargs['dummy_arg'] = 1
         self.assertRaises(TypeError, Base, **kwargs)
 
