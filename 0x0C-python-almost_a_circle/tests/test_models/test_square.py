@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 ''' Tests cases model for Square class '''
 import unittest
+import os
 from json import dumps, loads
 from models.rectangle import Rectangle
 from models.square import Square
@@ -124,3 +125,37 @@ class TestSquare(unittest.TestCase):
     def test__rectangleCreate(self):
         ''' Test create() instance method '''
         self.assertRaises(TypeError, Square.create(**{'id': 89}))
+
+    def test__squareSaveToFileNoneList(self):
+        ''' Test save_to_file() class method '''
+        Square.save_to_file(None)
+        with open("Square.json", encoding="utf-8", mode="r") as RectFile:
+            self.assertEqual('[]', RectFile.read())
+
+    def test__squareSaveToFileEmptyList(self):
+        ''' Test save_to_file() class method '''
+        Square.save_to_file([])
+        with open("Square.json", encoding="utf-8", mode="r") as RectFile:
+            self.assertEqual('[]', RectFile.read())
+
+    def test__squareSaveToFile(self):
+        ''' Test save_to_file() class method '''
+        Square1 = Square(1)
+        Square.save_to_file([Square1])
+        with open("Square.json", encoding="utf-8", mode="r") as RectFile:
+            str1 = Square.to_json_string([Square1.to_dictionary()])
+            self.assertEqual(str1, RectFile.read())
+
+    def test__SquareLoadFromFileExist(self):
+        ''' Test load_from__file() class method '''
+        Square1 = Square(1)
+        Square.save_to_file([Square1])
+        self.assertNotEqual(Square1, Square.load_from_file())
+
+    def test__SquareLoadFromFileNotFound(self):
+        ''' Test load_from__file() class method '''
+        try:
+            os.remove("Square.json")
+        except Exception:
+            pass
+        self.assertEqual([], Square.load_from_file())
