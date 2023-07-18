@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 ''' Tests cases model for Square class '''
 import unittest
+from json import dumps, loads
 from models.rectangle import Rectangle
 from models.square import Square
 
@@ -82,3 +83,42 @@ class TestSquare(unittest.TestCase):
         ''' Test __str__() instance method '''
         output = '[Square] (40) 20/30 - 10'
         self.assertTrue(output == str(self.s1))
+
+    def test__toJsonString(self):
+        ''' Test to_json_string() static method '''
+        s1 = Square(10, 7, 2, 48)
+        list_dictionaries = s1.to_dictionary()
+        self.assertEqual(
+                dumps(list_dictionaries),
+                Square.to_json_string(list_dictionaries))
+
+    def test__toJsonStringEmptyList(self):
+        ''' Test to_json_string() static method '''
+        self.assertEqual('[]', Square.to_json_string([]))
+
+    def test__toJsonStringNoneList(self):
+        ''' Test to_json_string() static method '''
+        self.assertEqual('[]', Square.to_json_string(None))
+
+    def test__toJsonStringTypeError(self):
+        ''' Test to_json_string() static method '''
+        self.assertRaises(TypeError, Square.to_json_string)
+
+    def test__fromJsonString(self):
+        ''' Test from_json_string() static method '''
+        s1 = Square(10, 7, 2, 48)
+        list_dictionaries = s1.to_dictionary()
+        str1 = Square.to_json_string(list_dictionaries)
+        self.assertEqual(list_dictionaries, Square.from_json_string(str1))
+
+    def test__fromJsonEmptyString(self):
+        ''' Test from_json_string() static method '''
+        self.assertEqual([], Square.from_json_string(''))
+
+    def test__fromJsonNoneString(self):
+        ''' Test from_json_string() static method '''
+        self.assertEqual([], Square.from_json_string(None))
+
+    def test__fromJsonStringTypeError(self):
+        ''' Test from_json_string() static method '''
+        self.assertRaises(TypeError, Square.from_json_string)
