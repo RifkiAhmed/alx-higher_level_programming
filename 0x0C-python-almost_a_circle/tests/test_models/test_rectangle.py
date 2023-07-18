@@ -2,6 +2,7 @@
 ''' Tests cases model for Rectangle class '''
 import unittest
 from models.rectangle import Rectangle
+from models.base import Base
 
 
 class TestRectangle(unittest.TestCase):
@@ -24,6 +25,7 @@ class TestRectangle(unittest.TestCase):
         r4 = Rectangle(*self.args[: 3])
         r5 = Rectangle(*self.args[: 4])
         self.assertIsInstance(self.r1, Rectangle)
+        self.assertIsInstance(self.r1, Base)
         self.assertEqual(self.r2.id, 99)
         self.assertTrue(self.r1.width == 10)
         self.assertGreater(r5.width, 0)
@@ -42,6 +44,8 @@ class TestRectangle(unittest.TestCase):
     def test__width_TypeError(self):
         ''' Test width type errors '''
         self.assertRaises(TypeError, Rectangle, 'w', 20, 30, 40, 50)
+        self.assertRaises(TypeError, Rectangle, [1, 1, 1, 1], 20, 30, 40, 50)
+        self.assertRaises(TypeError, Rectangle, None, 20, 30, 40, 50)
 
     def test__height_ValueError(self):
         ''' Test height value errors '''
@@ -51,6 +55,8 @@ class TestRectangle(unittest.TestCase):
     def test__height_TypeError(self):
         ''' Test  height type errors '''
         self.assertRaises(TypeError, Rectangle, 10, 'h', 30, 40, 50)
+        self.assertRaises(TypeError, Rectangle, 10, [1, 1, 1, 1], 30, 40, 50)
+        self.assertRaises(TypeError, Rectangle, 10, None, 30, 40, 50)
 
     def test__x_ValueError(self):
         ''' Test x value errors '''
@@ -59,6 +65,8 @@ class TestRectangle(unittest.TestCase):
     def test__x_TypeError(self):
         ''' Test x type errors '''
         self.assertRaises(TypeError, Rectangle, 10, 20, 'x', 40, 50)
+        self.assertRaises(TypeError, Rectangle, 10, 20, [1, 1, 1, 1], 40, 50)
+        self.assertRaises(TypeError, Rectangle, 10, 20, None, 40, 50)
 
     def test__y_ValueError(self):
         ''' Test y value errors '''
@@ -67,10 +75,13 @@ class TestRectangle(unittest.TestCase):
     def test__y_TypeError(self):
         ''' Test y type errors '''
         self.assertRaises(TypeError, Rectangle, 10, 20, 30, 'y', 50)
+        self.assertRaises(TypeError, Rectangle, 10, 20, 30, [1, 1, 1, 1], 50)
+        self.assertRaises(TypeError, Rectangle, 10, 20, 30, None, 50)
 
     def test__area(self):
         ''' Test area() instance method '''
         self.assertEqual(self.r1.area(), 200)
+        self.assertIsInstance(self.r1.area(), int)
 
     def test__update(self):
         ''' Test update() instance method '''
@@ -80,12 +91,20 @@ class TestRectangle(unittest.TestCase):
         self.assertNotEqual(r6.width, self.r1.width)
         self.r2.update(*self.args[: 5])
         self.assertFalse(r7.id == self.r2.id)
+        self.assertRaises(TypeError, Rectangle.update)
+        self.assertRaises(AttributeError, Rectangle.update, None, None)
+        Rectangle.update("welcome")
+        self.assertRaises(AttributeError, Rectangle.update, *self.args)
 
     def test__to_Dictionary(self):
         ''' Test to_dictionary() instance method '''
         self.r1.update(**self.kwargs)
         d1 = self.r1.to_dictionary()
         self.assertEqual(d1, self.kwargs)
+        self.assertIsInstance(d1, dict)
+        self.assertRaises(TypeError, self.r1.to_dictionary, self.r2)
+        self.assertRaises(AttributeError, Rectangle.to_dictionary, None)
+        self.assertRaises(AttributeError, Rectangle.to_dictionary, "Hello")
 
     def test__str(self):
         ''' Test __str__() instance method '''
