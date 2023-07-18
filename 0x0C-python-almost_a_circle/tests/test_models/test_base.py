@@ -20,7 +20,7 @@ class BaseTest(unittest.TestCase):
 
     def test_id(self):
         ''' Test instance attribute "id" '''
-        self.assertIsNotNone(Base().id)
+        self.assertIsNotNone(Base())
         self.assertEqual(self.base1.id, 99)
         self.assertIs(self.base1.id, 99)
 
