@@ -34,7 +34,7 @@ class TestSquare(unittest.TestCase):
 
     def test__SquareTypeError(self):
         ''' Test instance type errors '''
-        self.assertRaises(TypeError, Square, *self.args[0: 0])
+        self.assertRaises(TypeError, Square)
 
     def test__Size_ValueError(self):
         ''' Test width value errors '''
@@ -124,14 +124,14 @@ class TestSquare(unittest.TestCase):
         ''' Test from_json_string() static method '''
         self.assertRaises(TypeError, Square.from_json_string)
 
-    def test__rectangleCreate(self):
+    def test__squareCreate(self):
         ''' Test create() instance method '''
         self.assertRaises(TypeError, Square.create(**{'id': 89}))
 
     def test__squareSaveToFileNoneList(self):
         ''' Test save_to_file() class method '''
         Square.save_to_file(None)
-        with open("Square.json", encoding="utf-8", mode="r") as SquareFile:
+        with open("Square.json", mode="r") as SquareFile:
             self.assertEqual('[]', SquareFile.read())
 
     def test__squareSaveToFileEmptyList(self):
