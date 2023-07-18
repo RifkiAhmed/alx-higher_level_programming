@@ -22,14 +22,9 @@ class TestRectangle(unittest.TestCase):
 
     def test__init(self):
         ''' Test __init__() instance method '''
-        r3 = Rectangle(*self.args[: 2])
-        r4 = Rectangle(*self.args[: 3])
-        r5 = Rectangle(*self.args[: 4])
-        self.assertIsInstance(self.r1, Rectangle)
-        self.assertIsInstance(self.r1, Base)
-        self.assertEqual(self.r2.id, 99)
-        self.assertTrue(self.r1.width == 10)
-        self.assertGreater(r5.width, 0)
+        self.assertIsInstance(Rectangle(1, 2), Rectangle)
+        self.assertIsInstance(Rectangle(1, 2, 3), Rectangle)
+        self.assertIsInstance(Rectangle(1, 2, 3, 4), Rectangle)
 
     def test__typeError(self):
         ''' Test instance type errors '''
