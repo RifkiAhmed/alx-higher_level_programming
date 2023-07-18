@@ -120,3 +120,7 @@ class TestSquare(unittest.TestCase):
     def test__squareFromJsonStringTypeError(self):
         ''' Test from_json_string() static method '''
         self.assertRaises(TypeError, Square.from_json_string)
+
+    def test__rectangleCreate(self):
+        ''' Test create() instance method '''
+        self.assertRaises(TypeError, Square.create(**{'id': 89}))
