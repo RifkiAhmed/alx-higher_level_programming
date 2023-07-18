@@ -21,7 +21,7 @@ class BaseTest(unittest.TestCase):
     def test_id(self):
         ''' Test instance attribute "id" '''
         base2 = Base()
-        self.assertIsInstance(base2, Base)
+        self.assertEqual(base2.id, 7)
         self.assertEqual(self.base1.id, 99)
         self.assertIs(self.base1.id, 99)
 
