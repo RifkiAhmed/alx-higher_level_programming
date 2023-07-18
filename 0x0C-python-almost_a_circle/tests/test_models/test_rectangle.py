@@ -182,7 +182,13 @@ class TestRectangle(unittest.TestCase):
             str1 = Rectangle.to_json_string([rectangle1.to_dictionary()])
             self.assertEqual(str1, RectFile.read())
 
-    def test__rectangleLoadFromEmptyFile(self):
+    def test__rectangleLoadFromFileNotFound(self):
+        ''' Test load_from__file() class method '''
+        rectangle1 = Rectangle(1, 2)
+        Rectangle.save_to_file([rectangle1])
+        self.assertNotEqual(rectangle1, Rectangle.load_from_file())
+
+    def test__rectangleLoadFromFileExist(self):
         ''' Test load_from__file() class method '''
         try:
             os.remove("Rectangle.json")
