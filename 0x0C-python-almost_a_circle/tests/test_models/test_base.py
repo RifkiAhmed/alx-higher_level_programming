@@ -12,7 +12,6 @@ class BaseTest(unittest.TestCase):
 
     def setUp(self):
         ''' Instanciates Base class '''
-        self.base0 = Base()
         self.base1 = Base(99)
 
     def tearDown(self):
@@ -21,7 +20,7 @@ class BaseTest(unittest.TestCase):
 
     def test_id(self):
         ''' Test instance attribute "id" '''
-        self.assertIsNotNone(self.base0.id)
+        self.assertIsNotNone(Base().id)
         self.assertEqual(self.base1.id, 99)
         self.assertIs(self.base1.id, 99)
 
