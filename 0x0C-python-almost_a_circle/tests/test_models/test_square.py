@@ -3,7 +3,6 @@
 import unittest
 import os
 from json import dumps, loads
-from models.rectangle import Rectangle
 from models.square import Square
 
 
@@ -28,11 +27,10 @@ class TestSquare(unittest.TestCase):
 
     def test__Square(self):
         ''' Test __init__() instance method '''
-        s3 = Square(1)
-        self.assertEqual(s3.width, 1)
-        self.assertEqual(s3.height, 1)
-        self.assertEqual(s3.x, 0)
-        self.assertEqual(s3.y, 0)
+        self.assertEqual(Square(1).width, 1)
+        self.assertEqual(Square(1).height, 1)
+        self.assertEqual(Square(1).x, 0)
+        self.assertEqual(Square(1).y, 0)
 
     def test__SquareTypeError(self):
         ''' Test instance type errors '''
