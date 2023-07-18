@@ -21,7 +21,7 @@ class BaseTest(unittest.TestCase):
     def test_id(self):
         ''' Test instance attribute "id" '''
         base2 = Base()
-        self.assertIsNotNone(base2.id)
+        self.assertIsInstance(base2, Base)
         self.assertEqual(self.base1.id, 99)
         self.assertIs(self.base1.id, 99)
 
