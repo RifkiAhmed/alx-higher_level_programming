@@ -181,3 +181,11 @@ class TestRectangle(unittest.TestCase):
         with open("Rectangle.json", encoding="utf-8", mode="r") as RectFile:
             str1 = Rectangle.to_json_string([rectangle1.to_dictionary()])
             self.assertEqual(str1, RectFile.read())
+
+    def test__rectangleLoadFromEmptyFile(self):
+        ''' Test load_from__file() class method '''
+        self.assertEqual([], Rectangle.load_from_file())
+
+    def test__rectangleLoadFromEmptyFile(self):
+        ''' Test load_from__file() class method '''
+        pass
