@@ -38,28 +38,28 @@ class TestSquare(unittest.TestCase):
 
     def test__Size_ValueError(self):
         ''' Test width value errors '''
-        self.assertRaises(ValueError, Square, -10, 20, 30, 40)
-        self.assertRaises(ValueError, Square, 0, 20, 30, 40)
+        self.assertRaises(ValueError, Square, -10)
+        self.assertRaises(ValueError, Square, 0)
 
     def test__Size_TypeError(self):
         ''' Test width type errors '''
-        self.assertRaises(TypeError, Square, 'w', 20, 30, 40)
+        self.assertRaises(TypeError, Square, 'w', 20)
 
     def test__Square_x_ValueError(self):
         ''' Test x value errors '''
-        self.assertRaises(ValueError, Square, 10, -20, 30, 40)
+        self.assertRaises(ValueError, Square, 10, -20)
 
     def test__Square_x_TypeError(self):
         ''' Test x type errors '''
-        self.assertRaises(TypeError, Square, 10, 'x', 30, 40)
+        self.assertRaises(TypeError, Square, 10, 'x')
 
     def test__Square_y_ValueError(self):
         ''' Test y value errors '''
-        self.assertRaises(ValueError, Square, 10, 20, -30, 40)
+        self.assertRaises(ValueError, Square, 10, 20, -30)
 
     def test__Square_y_TypeError(self):
         ''' Test y type errors '''
-        self.assertRaises(TypeError, Square, 10, 20, 'y', 40)
+        self.assertRaises(TypeError, Square, 10, 20, 'y')
 
     def test__SquareArea(self):
         ''' Test area() instance method '''
