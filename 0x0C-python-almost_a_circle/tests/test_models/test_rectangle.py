@@ -162,15 +162,21 @@ class TestRectangle(unittest.TestCase):
         ''' Test create() instance method '''
         self.assertRaises(TypeError, Rectangle.create(**{'id': 89}))
 
-    def test(self):
+    def test__rectangleSaveToFileNoneList(self):
         ''' Test save_to_file() class method '''
         Rectangle.save_to_file(None)
         with open("Rectangle.json", encoding="utf-8", mode="r") as RectFile:
             self.assertEqual('[]', RectFile.read())
+
+    def test__rectangleSaveToFileEmptyList(self):
+        ''' Test save_to_file() class method '''
         Rectangle.save_to_file([])
         with open("Rectangle.json", encoding="utf-8", mode="r") as RectFile:
             self.assertEqual('[]', RectFile.read())
-        rectangle1 = Rectangle(1, 2, 3, 4, 5)
+
+    def test__rectangleSaveToFile(self):
+        ''' Test save_to_file() class method '''
+        rectangle1 = Rectangle(1, 2)
         Rectangle.save_to_file([rectangle1])
         with open("Rectangle.json", encoding="utf-8", mode="r") as RectFile:
             str1 = Rectangle.to_json_string([rectangle1.to_dictionary()])
