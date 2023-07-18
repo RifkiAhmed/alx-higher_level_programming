@@ -18,11 +18,6 @@ class TestSquare(unittest.TestCase):
         self.s2 = Square(**self.kwargs)
 
     try:
-        os.remove("Rectangle.json")
-    except Exception:
-        pass
-
-    try:
         os.remove("Square.json")
     except Exception:
         pass
