@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 ''' Tests cases model for Rectangle class '''
 import unittest
+from json import dumps, loads
 from models.rectangle import Rectangle
 from models.base import Base
 
@@ -110,3 +111,42 @@ class TestRectangle(unittest.TestCase):
         ''' Test __str__() instance method '''
         s1 = '[Rectangle] (50) 30/40 - 10/20'
         self.assertTrue(s1 == str(self.r1))
+
+    def test__toJsonString(self):
+        ''' Test to_json_string() static method '''
+        r1 = Rectangle(10, 7, 2, 48)
+        list_dictionaries = r1.to_dictionary()
+        self.assertEqual(
+                dumps(list_dictionaries),
+                Rectangle.to_json_string(list_dictionaries))
+
+    def test__toJsonStringEmptyList(self):
+        ''' Test to_json_string() static method '''
+        self.assertEqual('[]', Rectangle.to_json_string([]))
+
+    def test__toJsonStringNoneList(self):
+        ''' Test to_json_string() static method '''
+        self.assertEqual('[]', Rectangle.to_json_string(None))
+
+    def test__toJsonStringTypeError(self):
+        ''' Test to_json_string() static method '''
+        self.assertRaises(TypeError, Rectangle.to_json_string)
+
+    def test__fromJsonString(self):
+        ''' Test from_json_string() static method '''
+        r1 = Rectangle(10, 7, 2, 48)
+        list_dictionaries = r1.to_dictionary()
+        str1 = Rectangle.to_json_string(list_dictionaries)
+        self.assertEqual(list_dictionaries, Rectangle.from_json_string(str1))
+
+    def test__fromJsonEmptyString(self):
+        ''' Test from_json_string() static method '''
+        self.assertEqual([], Rectangle.from_json_string(''))
+
+    def test__fromJsonNoneString(self):
+        ''' Test from_json_string() static method '''
+        self.assertEqual([], Rectangle.from_json_string(None))
+
+    def test__fromJsonStringTypeError(self):
+        ''' Test from_json_string() static method '''
+        self.assertRaises(TypeError, Rectangle.from_json_string)
