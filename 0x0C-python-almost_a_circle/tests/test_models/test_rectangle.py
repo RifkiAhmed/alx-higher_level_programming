@@ -164,6 +164,6 @@ class TestRectangle(unittest.TestCase):
 
     def test(self):
         ''' Test save_to_file() class method '''
-        with self.assertRaises FileNotFoundError:
+        with self.assertRaises(FileNotFoundError):
             with open("Rectangle.json", encoding="utf-8", mode="r") as RecFile:
                 RectFile.read()
