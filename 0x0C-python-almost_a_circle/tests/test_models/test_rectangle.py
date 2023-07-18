@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 ''' Tests cases model for Rectangle class '''
 import unittest
+import os
 from json import dumps, loads
 from models.rectangle import Rectangle
 from models.base import Base
@@ -15,6 +16,16 @@ class TestRectangle(unittest.TestCase):
         self.kwargs = {'width': 1, 'height': 3, 'x': 5, 'y': 7, 'id': 99}
         self.r1 = Rectangle(*self.args[: 5])
         self.r2 = Rectangle(**self.kwargs)
+
+        try:
+            os.remove("Rectangle.json")
+        except Exception:
+            pass
+
+        try:
+            os.remove("Square.json")
+        except Exception:
+            pass
 
     def tearDown(self):
         ''' Removes variable '''
@@ -149,4 +160,10 @@ class TestRectangle(unittest.TestCase):
 
     def test__rectangleCreate(self):
         ''' Test create() instance method '''
-        self.assertRaises(TypeError, Rectangle.create(**{'id': 89 }))
+        self.assertRaises(TypeError, Rectangle.create(**{'id': 89}))
+
+    def test(self):
+        ''' Test save_to_file() class method '''
+        with self.assertRaises FileNotFoundError:
+            with open("Rectangle.json", encoding="utf-8", mode="r") as RecFile:
+                RectFile.read()
