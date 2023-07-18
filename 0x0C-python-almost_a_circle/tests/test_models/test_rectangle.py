@@ -146,3 +146,7 @@ class TestRectangle(unittest.TestCase):
     def test__fromJsonStringTypeError(self):
         ''' Test from_json_string() static method '''
         self.assertRaises(TypeError, Rectangle.from_json_string)
+
+    def test__rectangleCreate(self):
+        ''' Test create() instance method '''
+        self.assertRaises(TypeError, Rectangle.create(**{'id': 89 }))
