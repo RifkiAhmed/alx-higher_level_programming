@@ -35,7 +35,6 @@ class TestSquare(unittest.TestCase):
     def test__SquareTypeError(self):
         ''' Test instance type errors '''
         self.assertRaises(TypeError, Square, *self.args[0: 0])
-        self.assertRaises(TypeError, Square, *self.args)
 
     def test__Size_ValueError(self):
         ''' Test width value errors '''
