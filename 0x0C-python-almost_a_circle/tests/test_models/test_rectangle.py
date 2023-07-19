@@ -26,6 +26,18 @@ class TestRectangle(unittest.TestCase):
         except Exception:
             pass
 
+    def change_stdout(self, r1):
+        ''' Changes the stdout to file and returns a tuple'''
+        from contextlib import redirect_stdout
+        str1 = '\n' * r1.y + '\n'.join(
+                [' ' * r1.x + '#' * r1.width] * r1.height) + '\n'
+        with open("Rectangle.txt", encoding="utf-8", mode="w+") as file:
+            with redirect_stdout(file):
+                Rectangle.display(r1)
+            file.seek(0)
+            filetext = file.read()
+        return str1, filetext
+
     def test__Rectangle(self):
         ''' Test Rectangle class initialisation '''
         self.assertEqual(Rectangle(1, 2).width, 1)
@@ -89,27 +101,15 @@ class TestRectangle(unittest.TestCase):
 
     def test__rectangleDisplayWithoutXY(self):
         ''' Test Rectangle instance display() method '''
-        from contextlib import redirect_stdout
         r1 = Rectangle(5, 10)
-        str1 = '\n' * r1.y + '\n'.join(
-                [' ' * r1.x + '#' * r1.width] * r1.height) + '\n'
-        with open("Rectangle.txt", encoding="utf-8", mode="w+") as file:
-            with redirect_stdout(file):
-                r1.display()
-            file.seek(0)
-            self.assertEqual(str1, file.read())
+        str1, filetext = self.change_stdout(r1)
+        self.assertEqual(str1, filetext)
 
     def test__rectangleDisplayWithXY(self):
         ''' Test Rectangle instance display() method '''
-        from contextlib import redirect_stdout
         r1 = Rectangle(5, 10, 10, 20)
-        str1 = '\n' * r1.y + '\n'.join(
-                [' ' * r1.x + '#' * r1.width] * r1.height) + '\n'
-        with open("Rectangle.txt", encoding="utf-8", mode="w+") as file:
-            with redirect_stdout(file):
-                Rectangle.display(r1)
-            file.seek(0)
-            self.assertEqual(str1, file.read())
+        str1, filetext = self.change_stdout(r1)
+        self.assertEqual(str1, filetext)
 
     def test__rectangle__str(self):
         ''' Test Rectangle instance __str__() method '''
