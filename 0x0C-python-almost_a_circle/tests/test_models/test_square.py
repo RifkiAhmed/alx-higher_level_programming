@@ -10,7 +10,7 @@ class TestSquare(unittest.TestCase):
     ''' class of tests cases for testing Square class '''
 
     def setUp(self):
-        ''' Defines variables and removes file Square.json '''
+        ''' Defines variables and removes Square.json file '''
         self.args = [10, 20, 30, 40]
         self.kwargs = {'size': 1, 'x': 5, 'y': 7, 'id': 99}
 
@@ -20,7 +20,7 @@ class TestSquare(unittest.TestCase):
             pass
 
     def tearDown(self):
-        ''' Removes variables and file Square.json '''
+        ''' Removes variables and Square.json file '''
         del self.args, self.kwargs
         try:
             os.remove("Square.json")
@@ -39,12 +39,12 @@ class TestSquare(unittest.TestCase):
         self.assertRaises(TypeError, Square)
 
     def test__squareSizeValueError(self):
-        ''' Test Square instance width value errors '''
+        ''' Test Square instance size value errors '''
         self.assertRaises(ValueError, Square, -10)
         self.assertRaises(ValueError, Square, 0)
 
     def test__squareSizeTypeError(self):
-        ''' Test Square instance width type error '''
+        ''' Test Square instance size type error '''
         self.assertRaises(TypeError, Square, 'w', 20)
 
     def test__square_X_ValueError(self):
@@ -156,8 +156,4 @@ class TestSquare(unittest.TestCase):
 
     def test__squareLoadFromFileNotFound(self):
         ''' Test super load_from__file() class method '''
-        try:
-            os.remove("Square.json")
-        except Exception:
-            pass
         self.assertEqual([], Square.load_from_file())
