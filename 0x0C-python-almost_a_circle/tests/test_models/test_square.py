@@ -79,6 +79,19 @@ class TestSquare(unittest.TestCase):
         d1 = Square(**self.kwargs).to_dictionary()
         self.assertEqual(d1, self.kwargs)
 
+    def test__squareDisplay(self):
+        ''' Test Square instance display() method '''
+        from contextlib import redirect_stdout
+        s1 = Square(5, 5, 5)
+        with open("Square.txt", encoding="utf-8", mode="w") as DisplayText:
+            with redirect_stdout(DisplayText):
+                s1.display()
+        with open("Square.txt", encoding="utf-8", mode="r") as DisplayText:
+            output = DisplayText.read()
+        str1 = '\n' * s1.y + '\n'.join(
+            [' ' * s1.x + '#' * s1.width] * s1.height) + '\n'
+        self.assertEqual(output, str1)
+
     def test__square__str(self):
         ''' Test Square instance __str__() method '''
         s1 = Square(*self.args)
