@@ -96,7 +96,7 @@ class TestRectangle(unittest.TestCase):
         with open("Rectangle.txt", encoding="utf-8", mode="w+") as file:
             with redirect_stdout(file):
                 r1.display()
-                file.seek(0)
+            file.seek(0)
             self.assertEqual(str1, file.read())
 
     def test__rectangleDisplayWithXY(self):
