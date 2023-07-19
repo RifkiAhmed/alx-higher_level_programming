@@ -126,6 +126,9 @@ class TestRectangle(unittest.TestCase):
         with open("Rectangle.txt", encoding="utf-8", mode="r") as out_Text:
             self.assertEqual(str1, out_Text.read())
 
+        r1 = Rectangle(5, 10, 10, 20)
+        str1 = '\n' * r1.y + '\n'.join(
+                [' ' * r1.x + '#' * r1.width] * r1.height) + '\n'
         with open("Rectangle.txt", encoding="utf-8", mode="w") as in_Text:
             with redirect_stdout(in_Text):
                 Rectangle.display(r1)
