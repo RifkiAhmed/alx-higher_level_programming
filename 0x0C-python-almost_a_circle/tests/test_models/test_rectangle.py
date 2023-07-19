@@ -116,8 +116,16 @@ class TestRectangle(unittest.TestCase):
 
     def test__squareDisplay(self):
         ''' Test Square instance display() method '''
+        from contextlib import redirect_stdout
         r1 = Rectangle(4, 6)
-        self.assertEqual(r1.display(), r1.display())
+        with open("Rectangle.txt", encoding="utf-8", mode="w") as DisplayText:
+            with redirect_stdout(DisplayText):
+                r1.display()
+        with open("Rectangle.txt", encoding="utf-8", mode="r") as DisplayText:
+            output = DisplayText.read()
+        str1 = '\n' * r1.y + '\n'.join(
+                [' ' * r1.x + '#' * r1.width] * r1.height) + '\n'
+        self.assertEqual(output, str1)
 
     def test__str(self):
         ''' Test __str__() instance method '''
