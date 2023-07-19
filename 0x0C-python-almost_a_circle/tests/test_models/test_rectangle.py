@@ -126,10 +126,20 @@ class TestRectangle(unittest.TestCase):
         with open("Rectangle.txt", encoding="utf-8", mode="r") as out_Text:
             self.assertEqual(str1, out_Text.read())
 
+        with open("Rectangle.txt", encoding="utf-8", mode="w") as in_Text:
+            with redirect_stdout(in_Text):
+                Rectangle.display(r1)
+        with open("Rectangle.txt", encoding="utf-8", mode="r") as out_Text:
+            self.assertEqual(str1, out_Text.read())
+
     def test__str(self):
         ''' Test __str__() instance method '''
         s1 = '[Rectangle] (50) 30/40 - 10/20'
         self.assertTrue(s1 == str(self.r1))
+
+    def test__rectangleDisplayTypeError(self):
+        ''' Test Rectangle instance display() method '''
+        pass
 
     def test__toJsonString(self):
         ''' Test to_json_string() static method '''
