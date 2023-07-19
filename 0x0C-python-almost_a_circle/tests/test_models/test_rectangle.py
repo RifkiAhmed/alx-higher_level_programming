@@ -13,7 +13,6 @@ class TestRectangle(unittest.TestCase):
         ''' Defines variables and removes file Rectangle.json '''
         self.args = [10, 20, 30, 40, 50]
         self.kwargs = {'width': 1, 'height': 3, 'x': 5, 'y': 7, 'id': 99}
-
         try:
             os.remove("Rectangle.json")
         except Exception:
@@ -88,7 +87,7 @@ class TestRectangle(unittest.TestCase):
         d1 = Rectangle(**self.kwargs).to_dictionary()
         self.assertEqual(d1, self.kwargs)
 
-    def test__rectangleDisplay(self):
+    def test__rectangleDisplayWithoutXY(self):
         ''' Test Rectangle instance display() method '''
         from contextlib import redirect_stdout
         r1 = Rectangle(5, 10)
@@ -100,6 +99,9 @@ class TestRectangle(unittest.TestCase):
         with open("Rectangle.txt", encoding="utf-8", mode="r") as out_Text:
             self.assertEqual(str1, out_Text.read())
 
+    def test__rectangleDisplayWithXY(self):
+        ''' Test Rectangle instance display() method '''
+        from contextlib import redirect_stdout
         r1 = Rectangle(5, 10, 10, 20)
         str1 = '\n' * r1.y + '\n'.join(
                 [' ' * r1.x + '#' * r1.width] * r1.height) + '\n'
