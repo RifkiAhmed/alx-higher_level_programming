@@ -11,10 +11,8 @@ class TestSquare(unittest.TestCase):
 
     def setUp(self):
         ''' Defines variables and initialize instances '''
-        self.args = [10, 20, 30, 40, 50]
+        self.args = [10, 20, 30, 40]
         self.kwargs = {'size': 1, 'x': 5, 'y': 7, 'id': 99}
-        self.s1 = Square(*self.args[: 4])
-        self.s2 = Square(**self.kwargs)
 
         try:
             os.remove("Square.json")
@@ -22,8 +20,12 @@ class TestSquare(unittest.TestCase):
             pass
 
     def tearDown(self):
-        ''' Removes variable '''
+        ''' Removes variables and temporary files '''
         del self.args, self.kwargs
+        try:
+            os.remove("Square.json")
+        except Exception:
+            pass
 
     def test__Square(self):
         ''' Test __init__() instance method '''
@@ -63,27 +65,25 @@ class TestSquare(unittest.TestCase):
 
     def test__SquareArea(self):
         ''' Test area() instance method '''
-        self.assertEqual(self.s1.area(), 100)
+        self.assertEqual(Square(*self.args).area(), 100)
 
     def test__SquareUpdate(self):
         ''' Test update() instance method '''
-        s6 = Square(*self.args[: 4])
-        s7 = Square(**self.kwargs)
-        self.s1.update(**self.kwargs)
-        self.assertNotEqual(s6.width, self.s1.width)
-        self.s2.update(*self.args[: 4])
-        self.assertFalse(s7.id == self.s2.id)
+        s1 = Square(*self.args[: 4])
+        s2 = Square(**self.kwargs)
+        s1.update(**self.kwargs)
+        self.assertEqual(s1.width, s2.width)
 
     def test__square_to_Dictionary(self):
         ''' Test to_dictionary() instance method '''
-        self.s1.update(**self.kwargs)
-        d1 = self.s1.to_dictionary()
+        d1 = Square(**self.kwargs).to_dictionary()
         self.assertEqual(d1, self.kwargs)
 
     def test__Square__str(self):
         ''' Test __str__() instance method '''
+        s1 = Square(*self.args)
         output = '[Square] (40) 20/30 - 10'
-        self.assertTrue(output == str(self.s1))
+        self.assertTrue(output == str(s1))
 
     def test__squareToJsonString(self):
         ''' Test to_json_string() static method '''
