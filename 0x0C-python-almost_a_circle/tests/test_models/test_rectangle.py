@@ -47,12 +47,12 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError, Rectangle, 'w', 20)
 
     def test__rectangleHeightValueError(self):
-        ''' Test Rectangle instance width value errors '''
+        ''' Test Rectangle instance height value errors '''
         self.assertRaises(ValueError, Rectangle, 10, -20)
         self.assertRaises(ValueError, Rectangle, 10, 0)
 
     def test__rectangleHeightTypeError(self):
-        ''' Test Rectangle instance width type error '''
+        ''' Test Rectangle instance height type error '''
         self.assertRaises(TypeError, Rectangle, 10, 'h')
 
     def test__rectangle_X_ValueError(self):
@@ -93,11 +93,11 @@ class TestRectangle(unittest.TestCase):
         r1 = Rectangle(5, 10)
         str1 = '\n' * r1.y + '\n'.join(
                 [' ' * r1.x + '#' * r1.width] * r1.height) + '\n'
-        with open("Rectangle.txt", encoding="utf-8", mode="w") as in_Text:
-            with redirect_stdout(in_Text):
+        with open("Rectangle.txt", encoding="utf-8", mode="w+") as file:
+            with redirect_stdout(file):
                 r1.display()
-        with open("Rectangle.txt", encoding="utf-8", mode="r") as out_Text:
-            self.assertEqual(str1, out_Text.read())
+                file.seek(0)
+            self.assertEqual(str1, file.read())
 
     def test__rectangleDisplayWithXY(self):
         ''' Test Rectangle instance display() method '''
@@ -105,11 +105,11 @@ class TestRectangle(unittest.TestCase):
         r1 = Rectangle(5, 10, 10, 20)
         str1 = '\n' * r1.y + '\n'.join(
                 [' ' * r1.x + '#' * r1.width] * r1.height) + '\n'
-        with open("Rectangle.txt", encoding="utf-8", mode="w") as in_Text:
-            with redirect_stdout(in_Text):
+        with open("Rectangle.txt", encoding="utf-8", mode="w+") as file:
+            with redirect_stdout(file):
                 Rectangle.display(r1)
-        with open("Rectangle.txt", encoding="utf-8", mode="r") as out_Text:
-            self.assertEqual(str1, out_Text.read())
+            file.seek(0)
+            self.assertEqual(str1, file.read())
 
     def test__rectangle__str(self):
         ''' Test Rectangle instance __str__() method '''
@@ -188,8 +188,4 @@ class TestRectangle(unittest.TestCase):
 
     def test__rectangleLoadFromFileNotFound(self):
         ''' Test super load_from__file() class method '''
-        try:
-            os.remove("Rectangle.json")
-        except Exception:
-            pass
         self.assertEqual([], Rectangle.load_from_file())
