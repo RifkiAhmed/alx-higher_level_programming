@@ -25,8 +25,9 @@ class TestRectangle(unittest.TestCase):
             os.remove("Rectangle.json")
         except Exception:
             pass
-
-    def change_stdout(self, r1):
+    
+    @staticmethod
+    def change_stdout(r1):
         ''' Changes the stdout to file and returns a tuple'''
         from contextlib import redirect_stdout
         str1 = '\n' * r1.y + '\n'.join(
