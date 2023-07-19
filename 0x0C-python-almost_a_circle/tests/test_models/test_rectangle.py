@@ -114,7 +114,7 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(AttributeError, Rectangle.to_dictionary, None)
         self.assertRaises(AttributeError, Rectangle.to_dictionary, "Hello")
 
-    def test__squareDisplay(self):
+    def test__rectangleDisplay(self):
         ''' Test Rectangle instance display() method '''
         from contextlib import redirect_stdout
         r1 = Rectangle(5, 10)
