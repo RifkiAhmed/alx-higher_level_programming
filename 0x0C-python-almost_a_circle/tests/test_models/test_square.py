@@ -142,17 +142,17 @@ class TestSquare(unittest.TestCase):
 
     def test__squareSaveToFile(self):
         ''' Test super save_to_file() class method '''
-        Square1 = Square(1)
-        Square.save_to_file([Square1])
+        s1 = Square(1)
+        Square.save_to_file([s1])
         with open("Square.json", encoding="utf-8", mode="r") as SquareFile:
-            str1 = Square.to_json_string([Square1.to_dictionary()])
+            str1 = Square.to_json_string([s1.to_dictionary()])
             self.assertEqual(str1, SquareFile.read())
 
     def test__squareLoadFromFileExist(self):
         ''' Test super load_from__file() class method '''
-        Square1 = Square(1)
-        Square.save_to_file([Square1])
-        self.assertNotEqual(Square1, Square.load_from_file())
+        s1 = Square(1)
+        Square.save_to_file([s1])
+        self.assertNotEqual(s1, Square.load_from_file())
 
     def test__squareLoadFromFileNotFound(self):
         ''' Test super load_from__file() class method '''
