@@ -117,7 +117,7 @@ class TestRectangle(unittest.TestCase):
     def test__squareDisplay(self):
         ''' Test Square instance display() method '''
         from contextlib import redirect_stdout
-        r1 = Rectangle(4, 6)
+        r1 = Rectangle(5, 10, 5, 5)
         with open("Rectangle.txt", encoding="utf-8", mode="w") as DisplayText:
             with redirect_stdout(DisplayText):
                 r1.display()
