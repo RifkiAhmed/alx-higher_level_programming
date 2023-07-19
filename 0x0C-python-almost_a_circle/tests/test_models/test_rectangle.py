@@ -114,6 +114,11 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(AttributeError, Rectangle.to_dictionary, None)
         self.assertRaises(AttributeError, Rectangle.to_dictionary, "Hello")
 
+    def test__squareDisplay(self):
+        ''' Test Square instance display() method '''
+        r1 = Rectangle(4, 6)
+        self.assertEqual(r1.display(), r1.display())
+
     def test__str(self):
         ''' Test __str__() instance method '''
         s1 = '[Rectangle] (50) 30/40 - 10/20'
