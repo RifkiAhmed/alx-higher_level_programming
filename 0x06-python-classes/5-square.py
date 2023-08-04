@@ -8,7 +8,7 @@ class Square:
     """ Define square """
     def __init__(self, size=0):
         """ Initialises instance of Square """
-        self.__size = size
+        self.size = size
 
     @property
     def size(self):
@@ -30,7 +30,7 @@ class Square:
 
     def my_print(self):
         """ Prints in stdout the square with the character # """
-        if self.__size:
-            print('\n'.join(["#" * self.__size] * self.__size))
+        if self.size:
+            print('\n'.join(["#" * self.size] * self.size))
         else:
             print()
