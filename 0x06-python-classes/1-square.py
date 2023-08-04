@@ -1,13 +1,11 @@
 #!/usr/bin/python3
-
-'''
-class Square: new type
-'''
+"""
+    Square module
+"""
 
 
 class Square:
-    ''' Represents a square with a zise.'''
-
+    """ Define square """
     def __init__(self, size):
-        '''Initialise instance/object'''
+        """ Initialise instances """
         self.__size = size
