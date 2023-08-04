@@ -1,45 +1,36 @@
 #!/usr/bin/python3
-
-'''
-class Square: new type
-'''
+"""
+    Square module
+"""
 
 
 class Square:
-    ''' Represents a square with a zise.'''
-
+    """ Define square """
     def __init__(self, size=0):
-        '''Initialise instance/object'''
-        self.size = size
-
-    def area(self):
-        ''' Return the current square area'''
-        return self.size ** 2
+        """ Initialises instance of Square """
+        self.__size = size
 
     @property
     def size(self):
-        ''' Return current square size'''
+        """ Returns size of current square """
         return self.__size
 
     @size.setter
     def size(self, value):
-        ''' Set current square size'''
+        """ Sets value of size attributte for the current instance """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = value
+        self.__size = value
+
+    def area(self):
+        """ Returns the current square area """
+        return self.__size ** 2
 
     def my_print(self):
-        ''' Prints in stdout the square
-            if size is diffrent from 0 prints with the character #
-            otherwise prints an empty line
-        '''
-        if self.size == 0:
-            print('')
+        """ Prints in stdout the square with the character # """
+        if self.__size:
+            print('\n'.join(["#" * self.__size] * self.__size), end = "")
         else:
-            for i in range(self.size):
-                for j in range(self.size):
-                    print('#', end="")
-                print('')
+            print()
