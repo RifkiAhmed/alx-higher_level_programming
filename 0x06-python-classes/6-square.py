@@ -1,44 +1,23 @@
 #!/usr/bin/python3
-
-''' Class Square: Definition of new type
-'''
+"""
+    Square module
+"""
 
 
 class Square:
-    ''' Represents a square with a zise.
-    '''
-
+    """ Define square """
     def __init__(self, size=0, position=(0, 0)):
-        ''' Initialise instance/object
-        '''
-        self.size = size
-        self.position = position
-
-    def area(self):
-        ''' Return the current square area
-        '''
-        return self.__size ** 2
-
-    def my_print(self):
-        ''' Prints square in stdout
-        '''
-        if self.size:
-            print('\n' * self.position[1], end="")
-            for i in range(self.size):
-                print(' ' * self.position[0] + '#' * self.size)
-        else:
-            print()
+        """ Initialises instance of Square """
+        self.__size = size
 
     @property
     def size(self):
-        ''' Return current square size
-        '''
+        """ Returns the size of current square """
         return self.__size
 
     @size.setter
     def size(self, value):
-        ''' Set current square size
-        '''
+        """ Sets value of size attribute of current square """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
@@ -47,18 +26,25 @@ class Square:
 
     @property
     def position(self):
-        ''' Returns current square position
-        '''
-        return self.__position
+        """ Returns the position of current square """
+        return self.__position[0], self.__position[1]
 
     @position.setter
     def position(self, value):
-        ''' Sets current square position
-        '''
-        if not (isinstance(value, tuple) and
-                len(value) == 2 and
-                isinstance(value[0], int) and
-                isinstance(value[1], int) and
-                value[0] >= 0 and value[1] >= 0):
-            raise TypeError('position must be a tuple of 2 positive integers')
+        """ Sets values of position attribute of current square"""
+        if not (isinstance(value, tuple)
+                and isinstance(value[0], int)
+                and isinstance(value[1], int)):
+            raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
+
+    def area(self):
+        """ Returns the area of the current square """
+        return self.__size ** 2
+
+    def my_print(self):
+        """ Prints in stdout the current square with the character # """
+        if self.__size:
+            print('\n'.join(["#" * self.__size] * self.__size), end = "")
+        else:
+            print()
