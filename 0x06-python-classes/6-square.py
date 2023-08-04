@@ -41,13 +41,13 @@ class Square:
 
     def area(self):
         """ Returns the area of the current square """
-        return self.__size ** 2
+        return self.size ** 2
 
     def my_print(self):
         """ Prints in stdout the current square with the character # """
-        if self.__size:
-            print('\n' * self.__position[1], end="")
+        if self.size:
+            print('\n' * self.position[1], end="")
             print('\n'.join(
-                [' ' * self.__position[0] + "#" * self.__size] * self.__size))
+                [' ' * self.position[0] + "#" * self.size] * self.size))
         else:
             print()
