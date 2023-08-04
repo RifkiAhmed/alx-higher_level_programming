@@ -31,6 +31,6 @@ class Square:
     def my_print(self):
         """ Prints in stdout the square with the character # """
         if self.__size:
-            print('\n'.join(["#" * self.__size] * self.__size), end = "")
+            print('\n'.join(["#" * self.__size] * self.__size))
         else:
             print()
