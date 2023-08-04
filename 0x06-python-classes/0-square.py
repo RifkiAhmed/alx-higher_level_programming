@@ -1,13 +1,9 @@
 #!/usr/bin/python3
-
-'''
-class Square: new type
-'''
+"""
+    Square module
+"""
 
 
 class Square:
-    '''
-    empty block
-    '''
-
+    """ Define an empty class Square """
     pass
