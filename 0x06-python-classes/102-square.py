@@ -1,66 +1,53 @@
 #!/usr/bin/python3
-
-'''
-class Square: new type
-'''
+"""
+    Square module
+"""
 
 
 class Square:
-    ''' Represents a square with a zise.'''
-
+    """ Define square """
     def __init__(self, size=0):
-        '''Initialise instance/object'''
-        self.__size = size
-
-    def area(self):
-        ''' Return the current square area'''
-        return self.__size ** 2
-
-    def __lt__(self, other):
-        ''' Checks if current instance area is less than
-            other instance area
-        '''
-        return self.area() < other.area()
-
-    def __le__(self, other):
-        ''' Checks if current instance area is less than
-            or equal to other instance area
-        '''
-        return self.area() <= other.area()
-
-    def __eq__(self, other):
-        ''' Checks if areas of current and other instances are equals
-        '''
-        return self.area() == other.area()
-
-    def __ne__(self, other):
-        ''' Checks if areas of current and other instances are not equals
-        '''
-        return self.area() != other.area()
-
-    def __gt__(self, other):
-        ''' Checks if current instance area is greater than
-            other instance area
-        '''
-        return self.area() > other.area()
-
-    def __ge__(self, other):
-        ''' Checks if current instance area is greater than
-            or equal to other instance area
-        '''
-        return self.area() >= other.area()
+        """ Initialises instance of Square """
+        self.size = size
 
     @property
     def size(self):
-        ''' Return current square size'''
+        """ Returns size of current square """
         return self.__size
 
     @size.setter
     def size(self, value):
-        ''' Set current square size'''
+        """ Sets value of size attributte for the current instance """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = value
+        self.__size = value
+
+    def area(self):
+        """ Returns the current square area """
+        return self.size ** 2
+
+    def __lt__(self, square_2):
+        """ Checks if current square area is less than square_2 area """
+        return self.area() < square_2.area()
+
+    def __le__(self, square_2):
+        """ Checks if current square area less/equal to square_2 area """
+        return self.area() <= square_2.area()
+
+    def __eq__(self, square_2):
+        """ Checks if area of current square and square_2 are equals """
+        return self.area() == square_2.area()
+
+    def __ne__(self, square_2):
+        """ Checks if area of current square and square_2 are not equals """
+        return self.area() != square_2.area()
+
+    def __gt__(self, square_2):
+        """ Checks if current square area is greater than square_2 area """
+        return self.area() > square_2.area()
+
+    def __ge__(self, square_2):
+        """ Checks if current square area greater/equal to square_2 area """
+        return self.area() >= square_2.area()
