@@ -39,8 +39,8 @@
 #### **Task 2:** [2-square.py](2-square.py) <sup>:green_circle:</sup> <!-- :computer:💻 :mag_right:🔎 :mag:🔍 :bulb:💡 -->
 > - Write a class ``Square`` that defines a square by: (based on [1-square.py](1-square.py))
 > - Instantiation with optional size: ``def __init__(self, size=0):``
-> 1. size must be an integer, otherwise raise a ``TypeError`` exception with the message ``size must be an integer``
-> 1. if size is less than 0, raise a ``ValueError`` exception with the message ``size must be >= 0``
+>   - size must be an integer, otherwise raise a ``TypeError`` exception with the message ``size must be an integer``
+>   - if size is less than 0, raise a ``ValueError`` exception with the message ``size must be >= 0``
 
 #### **Task 3:** [3-square.py](3-square.py) <sup>:green_circle:</sup> <!-- :computer:💻 :mag_right:🔎 :mag:🔍 :bulb:💡 -->
 > - Write a class ``Square`` that defines a square by: (based on [2-square.py](2-square.py))
@@ -49,44 +49,44 @@
 #### **Task 4:** [4-square.py](4-square.py) <sup>:green_circle:</sup> <!-- :computer:💻 :mag_right:🔎 :mag:🔍 :bulb:💡 -->
 > - Write a class ``Square`` that defines a square by: (based on [3-square.py](3-square.py))
 > - Private instance attribute: ``size``
-> 1. property ``def size(self):`` to retrieve it
-> 1. property setter ``def size(self, value):`` to set it:
-> 1. size must be an integer, otherwise raise a ``TypeError`` exception with the message ``size must be an integer``
-> 1. if size is less than 0, raise a ``ValueError`` exception with the message ``size must be >= 0``
+>   - property ``def size(self):`` to retrieve it
+>   - property setter ``def size(self, value):`` to set it:
+>     - size must be an integer, otherwise raise a ``TypeError`` exception with the message ``size must be an integer``
+>     - if size is less than 0, raise a ``ValueError`` exception with the message ``size must be >= 0``
 
 #### **Task 5:** [5-square.py](5-square.py) <sup>:green_circle:</sup> <!-- :computer:💻 :mag_right:🔎 :mag:🔍 :bulb:💡 -->
 > - Write a class ``Square`` that defines a square by: (based on [4-square.py](4-square.py))
-> - Public instance method: ``def my_print(self):`` that prints in stdout the square with the character ``#``
-> 1. if size is equal to 0, print an empty line
+> - Public instance method: ``def my_print(self):`` that prints in stdout the square with the character ``#``:
+>   - if size is equal to 0, print an empty line
 
 #### **Task 6:** [6-square.py](6-square.py) <sup>:green_circle:</sup> <!-- :computer:💻 :mag_right:🔎 :mag:🔍 :bulb:💡 -->
 > - Write a class ``Square`` that defines a square by: (based on [5-square.py](5-square.py))
 > - Private instance attribute: ``position``
-> 1. property ``def position(self)``: to retrieve it
-> 1. property setter ``def position(self, value):`` to set it:
-> 1. position must be a tuple of 2 positive integers, otherwise raise a ``TypeError`` exception with the message ``position must be a tuple of 2 positive integers``
+>   - property ``def position(self)``: to retrieve it
+>   - property setter ``def position(self, value):`` to set it:
+>     - position must be a tuple of 2 positive integers, otherwise raise a ``TypeError`` exception with the message ``position must be a tuple of 2 positive integers``
 > - Instantiation with optional size and optional position: ``def __init__(self, size=0, position=(0, 0)):``
 > - Public instance method: ``def my_print(self):`` that prints in stdout the square with the character ``#``:
-> 1. if size is equal to 0, print an empty line
-> 2. position should be use by using space - Don’t fill lines by spaces when ``position[1] > 0``
+>   - if size is equal to 0, print an empty line
+>   - position should be use by using space - Don’t fill lines by spaces when ``position[1] > 0``
 
 #### **Task 7:** [100-singly_linked_list.py](100-singly_linked_list.py) <sup>:green_circle:</sup> <!-- :computer:💻 :mag_right:🔎 :mag:🔍 :bulb:💡 -->
 > - Write a class ``Node`` that defines a node of a singly linked list by:
 > - Private instance attribute: ``data``
-> 1. property ``def data(self):`` to retrieve it
-> 1. property setter ``def data(self, value):`` to set it:
-> 1. data must be an integer, otherwise raise a ``TypeError`` exception with the message ``data must be an integer``
+>   - property ``def data(self):`` to retrieve it
+>   - property setter ``def data(self, value):`` to set it:
+>     - data must be an integer, otherwise raise a ``TypeError`` exception with the message ``data must be an integer``
 > - Private instance attribute: ``next_node``:
-> 1. property ``def next_node(self):`` to retrieve it
-> 1. property setter ``def next_node(self, value):`` to set it:
-> 1. next_node can be ``None`` or must be a ``Node``, otherwise raise a ``TypeError`` exception with the message ``next_node must be a Node object``
+>   - property ``def next_node(self):`` to retrieve it
+>   - property setter ``def next_node(self, value):`` to set it:
+>     - next_node can be ``None`` or must be a ``Node``, otherwise raise a ``TypeError`` exception with the message ``next_node must be a Node object``
 > - Instantiation with data and next_node: ``def __init__(self, data, next_node=None):``
 > - And, write a class ``SinglyLinkedList`` that defines a singly linked list by:
 > - Private instance attribute: ``head`` (no setter or getter)
 > - Simple instantiation: ``def __init__(self):``
 > - Should be printable:
-> 1. print the entire list in stdout
-> 1. one node number by line
+>   - print the entire list in stdout
+>   - one node number by line
 > - Public instance method: ``def sorted_insert(self, value):`` that inserts a new Node into the correct sorted position in the list (increasing order)
 
 #### **Task 8:** [101-square.py](101-square.py) <sup>:green_circle:</sup> <!-- :computer:💻 :mag_right:🔎 :mag:🔍 :bulb:💡 -->
