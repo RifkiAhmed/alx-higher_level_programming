@@ -49,13 +49,14 @@ class Rectangle:
 
     def perimeter(self):
         """ Returns perimeter of current rectangle """
-        return self.width + self.height if self.widht * self.height else 0
+        return (self.width + self.height
+                ) * 2 if self.width * self.height else 0
 
     def __str__(self):
         """ Returns current rectangle format with the character '#' """
         if self.width and self.height:
             return '\n'.join(
-                    [Rectangle.print_symbol * self.width] * self.height)
+                    [str(self.print_symbol) * self.width] * self.height)
         else:
             ''
 
@@ -76,7 +77,7 @@ class Rectangle:
             raise TypeError("rect_1 must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):
             raise TypeError("rect_2 must be an instance of Rectangle")
-        if rect1.area() == rect2.area():
-            return rect1
+        if rect_1.area() == rect_2.area():
+            return rect_1
         else:
-            return rect1 if rect1.area() > rect2.area() else rect2
+            return rect_1 if rect_1.area() > rect_2.area() else rect_2
