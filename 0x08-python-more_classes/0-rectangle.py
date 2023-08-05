@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-''' Module: Creates class Rectangle
-'''
+"""
+    Rectangle module
+"""
 
 
 class Rectangle:
-    ''' Defines an empty Rectangle class
-    '''
+    """ Defines an empty class Rectangle """
     pass
