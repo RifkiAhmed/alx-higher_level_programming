@@ -53,4 +53,4 @@ class Rectangle:
         if self.width and self.height:
             return '\n'.join(['#' * self.width] * self.height)
         else:
-            ''
+            return ''
