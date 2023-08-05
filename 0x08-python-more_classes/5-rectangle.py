@@ -45,7 +45,8 @@ class Rectangle:
 
     def perimeter(self):
         """ Returns perimeter of current rectangle """
-        return self.width + self.height if self.widht * self.height else 0
+        return (self.width + self.height
+                ) * 2 if self.width * self.height else 0
 
     def __str__(self):
         """ Returns current rectangle format with the character '#' """
@@ -56,7 +57,7 @@ class Rectangle:
 
     def __repr__(self):
         """ Returns a string representation of current rectangle """
-        return "Rectangle(" + self.width + ", " + self.height + ")"
+        return "Rectangle(" + str(self.width) + ", " + str(self.height) + ")"
 
     def __del__(self):
         """ Deletes current rectangle """
