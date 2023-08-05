@@ -54,7 +54,8 @@ class Rectangle:
     def __str__(self):
         """ Returns current rectangle format with the character '#' """
         if self.width and self.height:
-            return '\n'.join([Rectangle.print_symbol * self.width] * self.height)
+            return '\n'.join(
+                    [Rectangle.print_symbol * self.width] * self.height)
         else:
             ''
 
