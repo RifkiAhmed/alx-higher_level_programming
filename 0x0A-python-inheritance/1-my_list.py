@@ -1,15 +1,11 @@
 #!/usr/bin/python3
-''' Module defines a class Mylist that inherits from list class
-'''
+"""
+    MyList module
+"""
 
 
 class MyList(list):
-    ''' Represents Mylist class inherits from list class
-    '''
-
+    """ Mylist class that inherits from List """
     def print_sorted(self):
-        ''' Prints an ascending sorted list
-        '''
-        my_list = self.copy()
-        my_list.sort()
-        print(my_list)
+        """ Prints current list in ascending sort """
+        print(sorted(self))
