@@ -1,14 +1,12 @@
-#!/usr/bin/python3
-''' Module defines a function add_attribute()
-    adds attribute to an object
-    else raise Typeerror with message: can't add new attribute
-'''
+#!/usr/bin/python
+"""
+    add_attribute module
+"""
 
 
 def add_attribute(obj, name, value):
-    ''' Adds an attribute to obj if possible
-    '''
+    """ Add attribute name to object """
     if "__dict__" in dir(obj):
-        obj.__setattr__(name, value)
+        obj.name = value
     else:
         raise TypeError("can't add new attribute")
