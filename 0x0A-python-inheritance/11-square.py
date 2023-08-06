@@ -9,7 +9,12 @@ class Square(Rectangle):
     """ Defines square class """
     def __init__(self, size):
         """ Initialises Square instance """
-        super().__init__(size, size)
+        try:
+            super().__init__(size, size)
+        except TypeError:
+            raise TypeError("size must be an integer")
+        except ValueError:
+            raise ValueError("size must be greater than 0")
         self.__size = size
 
     def area(self):
