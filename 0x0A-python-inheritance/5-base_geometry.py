@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-''' Module for an empty class BaseGeometry
-'''
+"""
+    BaseGeometry module
+"""
 
 
-class BaseGeometry(object):
-    ''' Represents an empty BaseGeometry class
-    '''
+class BaseGeometry:
+    """ Defines BaseGeometry class """
     pass
