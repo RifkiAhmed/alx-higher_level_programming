@@ -89,3 +89,11 @@ class Rectangle(Base):
                 self.width,
                 self.height
                 )
+
+    def update(self, *args):
+        """ Assigns arguments to rectangle attributes """
+        attrs = ("id", "width", "height", "x", "y")
+        if args is not None:
+            for i in range(len(args)):
+                if i < 5:
+                    setattr(self, attrs[i], args[i])
