@@ -1,23 +1,16 @@
 #!/usr/bin/python3
-''' Module to defines a MyInt class that inherits from int class
-    MyInt is a rebel class
-'''
+"""
+    my_int module inherits from int
+"""
 
 
 class MyInt(int):
-    ''' Represents a rebel MyInt class that inherits from int class
-    '''
+    """ Defins MyInt a rebel class of int """
+    def __eq__(self, value):
+        """ Returns of equal operator inverted """
+        return not super().__eq__(value)
 
-    def __eq__(self, other):
-        ''' Checks if equals and returns the opposite value
-        '''
-        if self.numerator == other.numerator:
-            return False
-        return True
+    def __ne__(self, value):
+        """ returns of not equal operator inverted """
+        return not super().__ne__(value)
 
-    def __ne__(self, other):
-        ''' Checks if not equals and returns the opposite value
-        '''
-        if self.numerator != other.numerator:
-            return False
-        return True
