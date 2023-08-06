@@ -78,3 +78,13 @@ class Rectangle(Base):
     def display(self):
         """ Prints to stdout the current rectangle with the character '#' """
         print("\n".join(["#" * self.width] * self.height))
+
+    def __str__(self):
+        """ Returns a string representation of current rectangle """
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+                self.id,
+                self.x,
+                self.y,
+                self.width,
+                self.height
+                )
