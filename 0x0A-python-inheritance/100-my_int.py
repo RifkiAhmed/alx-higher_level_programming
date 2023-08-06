@@ -13,4 +13,3 @@ class MyInt(int):
     def __ne__(self, value):
         """ returns of not equal operator inverted """
         return not super().__ne__(value)
-
