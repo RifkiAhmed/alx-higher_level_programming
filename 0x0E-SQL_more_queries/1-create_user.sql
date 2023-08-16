@@ -4,4 +4,4 @@
 CREATE user IF NOT EXISTS 'user_0d_1'@'localhost'
 IDENTIFIED WITH 'user_0d_1_pwd';
 GRANT all privileges ON *.* TO 'user_0d_1'@'localhost'
-WITH GRANT OPTION
+WITH GRANT OPTION;
