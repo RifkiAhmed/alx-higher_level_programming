@@ -3,5 +3,5 @@
 -- The user_0d_2 password set to user_0d_2_pwd.
 -- If the database hbtn_0d_2 or user_0d_2 already exists, script not fail.
 CREATE DATABASE IF NOT EXISTS hbtn_0d_2;
-CREATE USER IF NOT EXISTS 'user_0d_2'@'hostname';
+CREATE USER IF NOT EXISTS 'user_0d_2'@'hostname' IDENTIFIED BY 'user_0d_2_pwd';
 GRANT SELECT ON 'hbtn_0d_2'.* TO 'user_0d_2'@'hostname';
