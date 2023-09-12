@@ -1,14 +1,18 @@
 #!/usr/bin/node
 
-function findSecondMax (array) {
-  let i;
-  for (i = 0; i < array.length; i++) {
-    if (array[i] > array[i + 1])
-
-
-
-if (process.argv.length === 2 || process.argv.length === 3) {
-  console.log(0);
-} else {
-  console.log(intParse(process.argv.slice(2)));
+function secondMax (array) {
+  let max1, max2;
+  max1 = max2 = parseInt(array[0]);
+  array.forEach((item) => {
+    item = parseInt(item);
+    if (max1 < item) {
+      if (max1 !== max2) {
+        max2 = max1;
+      }
+      max1 = item;
+    }
+  });
+  return max2;
 }
+
+console.log(secondMax(process.argv.slice(2)));
