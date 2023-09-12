@@ -11,6 +11,9 @@ function secondMax (array) {
       }
       max1 = item;
     }
+    else if (max2 < item) {
+      max2 = item;
+    }
   });
   return max2;
 }
