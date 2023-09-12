@@ -14,5 +14,8 @@ function secondMax (array) {
   });
   return max2;
 }
-
-console.log(secondMax(process.argv.slice(2)));
+if (process.argv.length <= 3) {
+  console.log(0);
+} else {
+  console.log(secondMax(process.argv.slice(2)));
+}
