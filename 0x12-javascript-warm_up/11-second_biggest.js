@@ -10,8 +10,7 @@ function secondMax (array) {
         max2 = max1;
       }
       max1 = item;
-    }
-    else if (max2 < item) {
+    } else if (max2 < item) {
       max2 = item;
     }
   });
