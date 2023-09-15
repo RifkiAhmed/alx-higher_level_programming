@@ -1,1 +1,2 @@
-ALX SE program: 0x0C. Python - Almost a circle Project
+ALX AFRICA SE PROGRAM:
+> - Python - Object-relational mapping
