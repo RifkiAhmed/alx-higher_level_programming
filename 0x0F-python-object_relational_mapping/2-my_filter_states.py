@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    Model to list all states with name starting with 'N'
+    Model to list all states with name matches user input
     from the database hbtn_0e_0_usa
 """
 import MySQLdb
@@ -15,7 +15,8 @@ if __name__ == "__main__":
         db=argv[3]
     )
     cursor = connection.cursor()
-    sql = "SELECT * from states WHERE name = '{}' ORDER BY id".format(argv[4])
+    sql = "SELECT * from states\
+            WHERE name LIKE BINARY '{}' ORDER BY id".format(argv[4])
     cursor.execute(sql)
     rows = cursor.fetchall()
     for row in rows:
