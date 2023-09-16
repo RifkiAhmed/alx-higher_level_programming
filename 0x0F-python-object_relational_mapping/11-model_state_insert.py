@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """
-   Model to list a state with name given as argument
-   from the hbtn_0e_6_usa database.
-   the script is safe from MySQL injections.
+   Model to add a state into the hbtn_0e_6_usa database.
 """
 from sys import argv
 from model_state import Base, State
