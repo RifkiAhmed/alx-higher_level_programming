@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-   Module to list all cities related to a state
+   Module to list all states and their related cities
    in hbtn_0e_100_usa database.
 """
 from sys import argv
@@ -19,5 +19,5 @@ if __name__ == "__main__":
     for state in states:
         print("{}: {}".format(state.id, state.name))
         for city in state.cities:
-            print("    {}: {}".format(city.id, city.name))
+            print("\t{}: {}".format(city.id, city.name))
     session.close()
