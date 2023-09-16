@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-   Model to list all states in hbtn_0e_6_usa database. 
+   Model to list all states in hbtn_0e_6_usa database.
 """
 from sys import argv
 from model_state import Base, State
