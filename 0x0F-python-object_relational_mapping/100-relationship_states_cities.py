@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-   Module to list all cities in hbtn_0e_6_usa database.
+   Module to list all cities related to a state
+   in hbtn_0e_100_usa database.
 """
 from sys import argv
 from relationship_state import Base, State
