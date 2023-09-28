@@ -15,6 +15,4 @@ def find_peak(list_of_integers):
                 my_list[i] > my_list[length - i]) else my_list[length - i]
         peak = peak_tmp if peak_tmp > peak else peak
 
-    if len(my_list) % 2 == 1:
-        peak = my_list[i] if peak < my_list[i + 1] else peak
     return peak
