@@ -8,8 +8,13 @@ def find_peak(list_of_integers):
         return None
 
     my_list = list_of_integers
-    prev, lenght = my_list[0], len(my_list)
-    for i in range(0, lenght):
-        if my_list[i] >= my_list[i + 1] and my_list[i] >= prev:
-            return my_list[i]
-        prev = my_list[i - 1]
+    peak_tmp = peak = my_list[0]
+    length = len(my_list) - 1
+    for i in range(0, length // 2 + 1):
+        peak_tmp = my_list[i] if (
+                my_list[i] > my_list[length - i]) else my_list[length - i]
+        peak = peak_tmp if peak_tmp > peak else peak
+
+    if len(my_list) % 2 == 1:
+        peak = my_list[i] if peak < my_list[i + 1] else peak
+    return peak
