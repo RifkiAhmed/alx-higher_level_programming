@@ -3,8 +3,10 @@
     the value of the X-Request-Id variable found in the header of the response
 """
 
-import sys
-import requests
 
-response = requests.get(sys.argv[1])
-print(response.headers.get("X-Request-Id"))
+if __name__ == "__main__":
+    import sys
+    import requests
+
+    response = requests.get(sys.argv[1])
+    print(response.headers.get("X-Request-Id"))
