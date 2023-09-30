@@ -1,4 +1,4 @@
-i<h1 style="border-bottom: 4px solid green">ALX SE PROGRAM</h1>
+<h1 style="border-bottom: 4px solid green">ALX SE PROGRAM</h1>
 
 ### PROJECT: Python - Network #1 Python ``Scripting Back-end API``
 
