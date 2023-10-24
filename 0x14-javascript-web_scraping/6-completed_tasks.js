@@ -5,19 +5,17 @@ request(url, (error, response, body) => {
   if (error) {
     console.error(error);
   } else if (body) {
-    const todos = JSON.parse(body);
+    body = JSON.parse(body);
     const dict = {};
-    for (let i = 1; i <= 10; i++) {
-      let count = 0;
-      todos.forEach((todo) => {
-        if (todo.userId === i) {
-          if (todo.completed) {
-            count++;
-          }
+    body.forEach((todo) => {
+      if (todo.completed === true) {
+        if (dict[todo.userId] === undefined) {
+          dict[todo.userId] = 1;
+        } else {
+          dict[todo.userId]++;
         }
-      });
-      dict[i] = count;
-    }
+      }
+    });
     console.log(dict);
   }
 });
