@@ -1,4 +1,6 @@
 # ALX SE PROGRAM
-### Project: `` { Scripting }  { API }  { JavaScript } ``
+
+### **Project: JavaScript - Web scraping** `` { Scripting }  { API }  { JavaScript } ``
+
 ### AUTHOR
-> [RI=ifkiAhmed](https://github.com/RifkiAhmed)
+- [RifkiAhmed](https://github.com/RifkiAhmed)
