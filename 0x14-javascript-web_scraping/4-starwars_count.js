@@ -9,7 +9,7 @@ request(url, (error, response, body) => {
     let count = 0;
     for (const i in films) {
       for (const j in films[i].characters) {
-        if (films[i].characters[j] === 'https://swapi-api.alx-tools.com/api/people/18/') { count++; }
+        if (films[i].characters[j].endsWith('/18/')) { count++; }
       }
     }
     console.log(count);
